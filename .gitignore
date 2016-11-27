@@ -1,6 +1,7 @@
 node_modules
 dst
 pkg
+node-debug.log
 
 # package
 oshirasekun-dawrinw-x64

@@ -2,10 +2,8 @@
 /// <reference path="../node_modules/@types/node/index.d.ts"/>
 
 const electron = require("electron");
-const BrowserWindow: typeof Electron.BrowserWindow = electron.BrowserWindow;
-const app: Electron.App = electron.app;
 
-class MyApplication {
+class MainApplication {
     mainWindow: Electron.BrowserWindow = null;
 
     constructor(public app: Electron.App) {
@@ -20,7 +18,7 @@ class MyApplication {
     }
 
     onReady() {
-        this.mainWindow = new BrowserWindow({
+        this.mainWindow = new electron.BrowserWindow({
             width: 800,
             height: 400,
             minWidth: 500,
@@ -37,4 +35,4 @@ class MyApplication {
     }
 }
 
-const myapp = new MyApplication(app);
+const mainApp = new MainApplication(electron.app);
