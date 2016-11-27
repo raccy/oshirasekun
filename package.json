@@ -2,7 +2,7 @@
   "name": "oshirasekun",
   "version": "0.0.0",
   "description": "Message and Login Form for Client",
-  "main": "dist/index.js",
+  "main": "dst/index.js",
   "scripts": {
     "buildtsc": "tsc",
     "buildpug": "pug -o dst/ src/",
@@ -10,7 +10,7 @@
     "build": "npm run buildtsc && npm run buildpug && npm run buildsass",
     "prestart": "npm run build",
     "start": "electron .",
-    "package": "electron-packager . --out=pkg --ignore=src --ignore=oshirasekun-\\.*",
+    "package": "electron-packager . --out=pkg --ignore=src --ignore=pkg",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "raccy",
