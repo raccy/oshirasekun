@@ -4,9 +4,12 @@
   "description": "Message and Login Form for Client",
   "main": "dist/index.js",
   "scripts": {
-    "hogehoge": "echo 1 && echo $SHELL",
+    "buildtsc": "tsc --outDir dist",
+    "buildpug": "pug -o dist/ src/",
+    "buildsass": "node-sass -o dist/ -r src/",
+    "build": "npm run buildtsc && npm run buildpug && npm run buildsass",
+    "prestart": "npm run build",
     "start": "electron .",
-    "build": "tsc --outDir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "raccy",
@@ -14,7 +17,11 @@
   "devDependencies": {
     "@types/electron": "^1.4.25",
     "@types/node": "^6.0.46",
+    "electron": "^1.4.8",
     "electron-packager": "^8.3.0",
+    "node-sass": "^3.13.0",
+    "pug": "^2.0.0-beta6",
+    "pug-cli": "^1.0.0-alpha6",
     "typescript": "^2.0.10"
   }
 }

@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "module": "commonjs"
+    "module": "commonjs",
+    "outDir": "dist"
   },
-  "include": [
-    "src/**/*.ts",
-  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "atom": {
+    "formatOnSave": true
+  }
 }
