@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "dist"
+    "outDir": "dst"
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules"
   ],

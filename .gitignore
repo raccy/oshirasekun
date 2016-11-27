@@ -1,2 +1,8 @@
 node_modules
-dist
+dst
+pkg
+
+# package
+oshirasekun-dawrinw-x64
+oshirasekun-win32-x64
+oshirasekun-win32-ia32
