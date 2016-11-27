@@ -1,7 +1,4 @@
-/// <reference path="../node_modules/@types/electron/index.d.ts"/>
-/// <reference path="../node_modules/@types/node/index.d.ts"/>
-
-const electron = require("electron");
+import * as electron from "electron";
 
 class MainApplication {
     mainWindow: Electron.BrowserWindow = null;
