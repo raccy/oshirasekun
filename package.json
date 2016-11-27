@@ -1,0 +1,20 @@
+{
+  "name": "oshirasekun",
+  "version": "0.0.0",
+  "description": "Message and Login Form for Client",
+  "main": "dist/index.js",
+  "scripts": {
+    "hogehoge": "echo 1 && echo $SHELL",
+    "start": "electron .",
+    "build": "tsc --outDir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "raccy",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/electron": "^1.4.25",
+    "@types/node": "^6.0.46",
+    "electron-packager": "^8.3.0",
+    "typescript": "^2.0.10"
+  }
+}
