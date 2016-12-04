@@ -18,7 +18,7 @@
   "author": "raccy",
   "license": "MIT",
   "devDependencies": {
-    "@types/electron": "^1.4.25",
+    "@types/electron": "1.4.28",
     "@types/jquery": "^2.0.34",
     "@types/node": "^6.0.51",
     "@types/react": "^0.14.50",
