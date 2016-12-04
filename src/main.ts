@@ -23,6 +23,7 @@ class MainApplication {
             frame: false,
             transparent: true,
             resizable: false,
+            alwaysOnTop: true,
             // titleBarStyle: "hidden"
             acceptFirstMouse: true
         });
