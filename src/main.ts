@@ -21,10 +21,10 @@ class MainApplication {
             // kiosk: true,
             fullscreen: true,
             frame: false,
-            transparent: true,
             resizable: false,
             alwaysOnTop: true,
             // titleBarStyle: "hidden"
+            transparent: true,
             acceptFirstMouse: true
         });
 
