@@ -4,5 +4,14 @@
 @import "font-awesome";
 
 html {
+  background-color: rgba(black, 0.5);
   font-family: sans-serif;
+}
+
+body {
+  background-color: inherit;
+}
+
+.content {
+  background-color: white;
 }

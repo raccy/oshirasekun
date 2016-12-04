@@ -14,12 +14,17 @@ class MainApplication {
 
     onReady() {
         this.mainWindow = new electron.BrowserWindow({
-            width: 800,
-            height: 400,
-            minWidth: 500,
-            minHeight: 200,
-            acceptFirstMouse: true
+            // width: 800,
+            // height: 400,
+            // minWidth: 500,
+            // minHeight: 200,
+            // kiosk: true,
+            fullscreen: true,
+            frame: false,
+            transparent: true,
+            resizable: false,
             // titleBarStyle: "hidden"
+            acceptFirstMouse: true
         });
 
         this.mainWindow.loadURL("file://" + __dirname + "/index.html");
