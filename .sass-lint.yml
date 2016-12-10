@@ -13,6 +13,8 @@ rules:
   no-debug: 1
   no-ids: 2
   no-important: 2
+  no-color-literals: 0
+  no-color-keywords: 0
   hex-notation:
     - 2
     -
@@ -24,16 +26,10 @@ rules:
   property-sort-order:
     - 1
     -
-      order:
-        - display
-        - margin
+      order: concentric
       ignore-custom-properties: true
   variable-for-property:
-    - 2
-    -
-      properties:
-        - margin
-        - content
+    - 0
   quotes:
     - 1
     -

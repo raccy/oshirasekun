@@ -14,12 +14,12 @@ class MainApplication {
 
     onReady() {
         this.mainWindow = new electron.BrowserWindow({
-            // width: 800,
-            // height: 400,
-            // minWidth: 500,
-            // minHeight: 200,
+            width: 1024,
+            height: 768,
+            minWidth: 1024, // must be larger than XGA width
+            minHeight: 768, // must be larger than XGA height
             // kiosk: true,
-            fullscreen: true,
+            // fullscreen: true,
             frame: false,
             resizable: false,
             alwaysOnTop: true,

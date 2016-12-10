@@ -5,10 +5,11 @@ html(lang="ja")
     title お知らせ君
     link(rel="stylesheet" href="css/all.css")
   body
-    .content
+    .main.rounded
       i.fa.fa-camera(aria-hidden="true")
       #main
-      button#quit-button
+    .debug
+      button#quit-button.btn
         | 終了
     script.
       require("./js/index.js");
