@@ -8,7 +8,7 @@
     "buildpug": "pug -o dst/ src/",
     "buildsass": "node-sass --include-path node_modules/bootstrap/scss --include-path node_modules/font-awesome/scss -o dst/ -r src/",
     "buildfont": "copyup -f 'node_modules/font-awesome/fonts/*' dst/fonts",
-    "build": "npm run buildtsc && npm run buildpug && npm run buildsass",
+    "build": "npm run buildtsc && npm run buildpug && npm run buildsass && npm run buildfont",
     "prestart": "npm run build",
     "start": "electron .",
     "package": "npm run build && electron-packager . --out=pkg --ignore=src --ignore=pkg",
