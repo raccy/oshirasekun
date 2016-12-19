@@ -14,17 +14,21 @@ class MainApplication {
 
     onReady() {
         this.mainWindow = new electron.BrowserWindow({
-            width: 1024,
-            height: 768,
-            minWidth: 1024, // must be larger than XGA width
-            minHeight: 768, // must be larger than XGA height
-            // kiosk: true,
-            // fullscreen: true,
-            frame: false,
+            // width: 1024,
+            // height: 768,
+            // minWidth: 1024, // must be larger than XGA width
+            // minHeight: 768, // must be larger than XGA height
             resizable: false,
+            movable: false,
+            minimizable: false,
+            // closable: false,
             alwaysOnTop: true,
-            // titleBarStyle: "hidden"
+            fullscreen: true,
+            kiosk: true,
+            title: "お知らせ君",
+            frame: false,
             transparent: true,
+            // titleBarStyle: "hidden",
             acceptFirstMouse: true
         });
 
@@ -32,6 +36,15 @@ class MainApplication {
 
         this.mainWindow.on("closed", () => {
             this.mainWindow = null;
+        });
+
+        this.mainWindow.on("blur", () => {
+            console.log("Force to focus Main Window!");
+            this.mainWindow.focus();
+        });
+
+        electron.globalShortcut.register('Ctrl+3', () => {
+            console.log("on Windows + R key!")
         });
     }
 }
