@@ -14,7 +14,7 @@ html(lang="ja")
         button#quit-button.btn.btn-sm
           | 終了
     script.
-      require("./js/index.js");
+      require("./index.js");
       $('#quit-button').click((e) => {
         require("electron").remote.app.quit();
       });

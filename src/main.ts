@@ -40,11 +40,13 @@ class MainApplication {
 
         this.mainWindow.on("blur", () => {
             console.log("Force to focus Main Window!");
-            this.mainWindow.focus();
+            // FIXME: Macだと下記方法でいけるけど、Win10はだめ？
+            // this.mainWindow.focus();
         });
 
-        electron.globalShortcut.register('Ctrl+3', () => {
-            console.log("on Windows + R key!")
+        electron.globalShortcut.register("Cmd+Q", () => {
+            console.log("on Command Q key!");
+            this.mainWindow.close();
         });
     }
 }

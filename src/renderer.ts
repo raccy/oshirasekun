@@ -7,7 +7,7 @@ require("bootstrap");
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Main from "../lib/component/main";
+import Main from "./lib/component/main";
 
 const mainContent = document.getElementById("main");
 ReactDOM.render(React.createElement(Main, null), mainContent);
