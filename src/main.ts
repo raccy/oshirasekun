@@ -44,8 +44,8 @@ class MainApplication {
             // this.mainWindow.focus();
         });
 
-        electron.globalShortcut.register("Cmd+Q", () => {
-            console.log("on Command Q key!");
+        electron.globalShortcut.register("CmdOrCtrl+Alt+O", () => {
+            console.log("Froce to close!");
             this.mainWindow.close();
         });
     }
