@@ -1,5 +1,23 @@
 import * as electron from "electron";
 
+const package_info = `${electron.app.getName()} ${electron.app.getVersion()}`;
+
+const Getopt = require("node-getopt");
+const opt = Getopt.create([
+    ['d', 'debug', 'debug mode'],
+    ['h', 'help', 'display this help'],
+    ['v', 'version', 'show version']
+])
+    .bindHelp(`${package_info}\nUsage: oshirasekun [options]\n\n[[OPTIONS]]\n`)
+    .parseSystem();
+
+if (opt.options.version) {
+    console.info(package_info);
+    electron.app.quit();
+}
+
+
+
 class MainApplication {
     mainWindow: Electron.BrowserWindow = null;
 
