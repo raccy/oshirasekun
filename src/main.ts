@@ -4,22 +4,22 @@ const package_info = `${electron.app.getName()} ${electron.app.getVersion()}`;
 
 const Getopt = require("node-getopt");
 const opt = Getopt.create([
-    ['d', 'debug', 'debug mode'],
-    ['h', 'help', 'display this help'],
-    ['v', 'version', 'show version']
+    ["d", "debug", "debug mode"],
+    ["h", "help", "display this help"],
+    ["v", "version", "show version"]
 ])
     .bindHelp(`${package_info}\nUsage: oshirasekun [options]\n\n[[OPTIONS]]\n`)
+    .on("version", () => {
+        console.info(package_info);
+        electron.app.quit();
+    })
     .parseSystem();
 
-if (opt.options.version) {
-    console.info(package_info);
-    electron.app.quit();
-}
 
 class MainApplication {
     mainWindow: Electron.BrowserWindow = null;
 
-    constructor(public app: Electron.App) {
+    constructor(public app: Electron.App, public debug: boolean) {
         this.app.on("window-all-closed", () => this.onWindowAllClosed());
         this.app.on("ready", () => this.onReady());
     }
@@ -103,4 +103,4 @@ class MainApplication {
     }
 }
 
-const mainApp = new MainApplication(electron.app);
+const mainApp = new MainApplication(electron.app, opt.options.debug);
