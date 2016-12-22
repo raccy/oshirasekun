@@ -5,7 +5,7 @@ class MainApplication {
 
     constructor(public app: Electron.App) {
         this.app.on("window-all-closed", () => this.onWindowAllClosed());
-        this.app.on("ready", this.onReady);
+        this.app.on("ready", () => this.onReady());
     }
 
     onWindowAllClosed() {
@@ -27,7 +27,8 @@ class MainApplication {
             kiosk: true,
             title: "お知らせ君",
             frame: false,
-            transparent: true,
+            //
+            // transparent: true,
             // titleBarStyle: "hidden",
             acceptFirstMouse: true
         });
@@ -39,15 +40,50 @@ class MainApplication {
         });
 
         this.mainWindow.on("blur", () => {
-            console.log("Force to focus Main Window!");
-            // FIXME: Macだと下記方法でいけるけど、Win10はだめ？
-            // this.mainWindow.focus();
+            this.focusMainWindow();
+            // console.log("Force to focus Main Window!");
+            // // FIXME: Windows 10 ではフォーカスが設定されない。
+            // // https://github.com/electron/electron/issues/2867
+            // if (process.platform === "win32") {
+            //     // Windows 10 では一度minimizeしないとフォーカスが取れない。
+            //     this.mainWindow.minimize();
+            //     this.mainWindow.focus();
+            //     // スタートメニューは連続して取ろうとする。
+            //     setTimeout(() => {
+            //         if (!this.mainWindow.isFocused()) {
+            //             this.mainWindow.minimize();
+            //             this.mainWindow.focus();
+            //         }
+            //     }, 1000);
+            // } else {
+            //     this.mainWindow.focus();
+            // }
         });
 
         electron.globalShortcut.register("CmdOrCtrl+Alt+O", () => {
             console.log("Froce to close!");
             this.mainWindow.close();
         });
+    }
+
+    focusMainWindow() {
+        console.log("Force to focus Main Window!");
+        // FIXME: Windows 10 ではフォーカスが設定されない。
+        // https://github.com/electron/electron/issues/2867
+        if (process.platform === "win32") {
+            // Windows 10 では一度minimizeしないとフォーカスが取れない。
+            this.mainWindow.minimize();
+            this.mainWindow.focus();
+            // スタートメニューは連続して取ろうとするため、
+            //  確認後に再度奪われていれば設定する。
+            setTimeout(() => {
+                if (!this.mainWindow.isFocused()) {
+                    this.focusMainWindow();
+                }
+            }, 1000);
+        } else {
+            this.mainWindow.focus();
+        }
     }
 }
 
