@@ -16,8 +16,6 @@ if (opt.options.version) {
     electron.app.quit();
 }
 
-
-
 class MainApplication {
     mainWindow: Electron.BrowserWindow = null;
 
@@ -45,8 +43,7 @@ class MainApplication {
             kiosk: true,
             title: "お知らせ君",
             frame: false,
-            //
-            // transparent: true,
+            transparent: true,
             // titleBarStyle: "hidden",
             acceptFirstMouse: true
         });
@@ -91,6 +88,7 @@ class MainApplication {
         if (process.platform === "win32") {
             // Windows 10 では一度minimizeしないとフォーカスが取れない。
             this.mainWindow.minimize();
+            this.mainWindow.setFullScreen(true);
             this.mainWindow.focus();
             // スタートメニューは連続して取ろうとするため、
             //  確認後に再度奪われていれば設定する。
