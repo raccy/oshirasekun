@@ -11,5 +11,5 @@ $ npm run package
 ## テスト
 
 ```
-$ npm start
+$ npm run debug
 ```

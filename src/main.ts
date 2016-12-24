@@ -15,9 +15,8 @@ const opt = Getopt.create([
     })
     .parseSystem();
 
-
 class MainApplication {
-    mainWindow: Electron.BrowserWindow = null;
+    startScreenWindow: Electron.BrowserWindow = null;
 
     constructor(public app: Electron.App, public debug: boolean) {
         this.app.on("window-all-closed", () => this.onWindowAllClosed());
@@ -29,7 +28,7 @@ class MainApplication {
     }
 
     onReady() {
-        this.mainWindow = new electron.BrowserWindow({
+        this.startScreenWindow = new electron.BrowserWindow({
             // width: 1024,
             // height: 768,
             // minWidth: 1024, // must be larger than XGA width
@@ -48,57 +47,57 @@ class MainApplication {
             acceptFirstMouse: true
         });
 
-        this.mainWindow.loadURL("file://" + __dirname + "/index.html");
+        this.startScreenWindow.loadURL("file://" + __dirname + "/index.html");
 
-        this.mainWindow.on("closed", () => {
-            this.mainWindow = null;
+        this.startScreenWindow.on("closed", () => {
+            this.startScreenWindow = null;
         });
 
-        this.mainWindow.on("blur", () => {
-            this.focusMainWindow();
+        this.startScreenWindow.on("blur", () => {
+            this.focusstartScreenWindow();
             // console.log("Force to focus Main Window!");
             // // FIXME: Windows 10 ではフォーカスが設定されない。
             // // https://github.com/electron/electron/issues/2867
             // if (process.platform === "win32") {
             //     // Windows 10 では一度minimizeしないとフォーカスが取れない。
-            //     this.mainWindow.minimize();
-            //     this.mainWindow.focus();
+            //     this.startScreenWindow.minimize();
+            //     this.startScreenWindow.focus();
             //     // スタートメニューは連続して取ろうとする。
             //     setTimeout(() => {
-            //         if (!this.mainWindow.isFocused()) {
-            //             this.mainWindow.minimize();
-            //             this.mainWindow.focus();
+            //         if (!this.startScreenWindow.isFocused()) {
+            //             this.startScreenWindow.minimize();
+            //             this.startScreenWindow.focus();
             //         }
             //     }, 1000);
             // } else {
-            //     this.mainWindow.focus();
+            //     this.startScreenWindow.focus();
             // }
         });
 
         electron.globalShortcut.register("CmdOrCtrl+Alt+O", () => {
             console.log("Froce to close!");
-            this.mainWindow.close();
+            this.startScreenWindow.close();
         });
     }
 
-    focusMainWindow() {
+    focusstartScreenWindow() {
         console.log("Force to focus Main Window!");
         // FIXME: Windows 10 ではフォーカスが設定されない。
         // https://github.com/electron/electron/issues/2867
         if (process.platform === "win32") {
             // Windows 10 では一度minimizeしないとフォーカスが取れない。
-            this.mainWindow.minimize();
-            this.mainWindow.setFullScreen(true);
-            this.mainWindow.focus();
+            this.startScreenWindow.minimize();
+            this.startScreenWindow.setFullScreen(true);
+            this.startScreenWindow.focus();
             // スタートメニューは連続して取ろうとするため、
             //  確認後に再度奪われていれば設定する。
             setTimeout(() => {
-                if (!this.mainWindow.isFocused()) {
-                    this.focusMainWindow();
+                if (!this.startScreenWindow.isFocused()) {
+                    this.focusstartScreenWindow();
                 }
             }, 1000);
         } else {
-            this.mainWindow.focus();
+            this.startScreenWindow.focus();
         }
     }
 }
