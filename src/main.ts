@@ -1,4 +1,5 @@
 import * as electron from "electron";
+import * as R from "ramda";
 
 const package_info = `${electron.app.getName()} ${electron.app.getVersion()}`;
 
@@ -28,24 +29,35 @@ class MainApplication {
     }
 
     onReady() {
-        this.startScreenWindow = new electron.BrowserWindow({
-            // width: 1024,
-            // height: 768,
-            // minWidth: 1024, // must be larger than XGA width
-            // minHeight: 768, // must be larger than XGA height
+        let startScreemWindow: Electron.BrowserWindowOptions = {
+            width: 1024,
+            height: 768,
+            minWidth: 1024, // must be larger than XGA width
+            minHeight: 768, // must be larger than XGA height
             resizable: false,
             movable: false,
             minimizable: false,
-            // closable: false,
+            closable: false,
             alwaysOnTop: true,
             fullscreen: true,
             kiosk: true,
             title: "お知らせ君",
             frame: false,
             transparent: true,
-            // titleBarStyle: "hidden",
+            titleBarStyle: "hidden",
             acceptFirstMouse: true
-        });
+        };
+        if (this.debug) {
+            startScreemWindow = R.merge(startScreemWindow, {
+                movable: true,
+                closable: true,
+                alwaysOnTop: false,
+                fullscreen: false,
+                kiosk: false,
+            });
+        }
+
+        this.startScreenWindow = new electron.BrowserWindow(startScreemWindow);
 
         this.startScreenWindow.loadURL("file://" + __dirname + "/index.html");
 
@@ -53,29 +65,15 @@ class MainApplication {
             this.startScreenWindow = null;
         });
 
-        this.startScreenWindow.on("blur", () => {
-            this.focusstartScreenWindow();
-            // console.log("Force to focus Main Window!");
-            // // FIXME: Windows 10 ではフォーカスが設定されない。
-            // // https://github.com/electron/electron/issues/2867
-            // if (process.platform === "win32") {
-            //     // Windows 10 では一度minimizeしないとフォーカスが取れない。
-            //     this.startScreenWindow.minimize();
-            //     this.startScreenWindow.focus();
-            //     // スタートメニューは連続して取ろうとする。
-            //     setTimeout(() => {
-            //         if (!this.startScreenWindow.isFocused()) {
-            //             this.startScreenWindow.minimize();
-            //             this.startScreenWindow.focus();
-            //         }
-            //     }, 1000);
-            // } else {
-            //     this.startScreenWindow.focus();
-            // }
-        });
+        if (!this.debug) {
+            this.startScreenWindow.on("blur", () => {
+                this.focusstartScreenWindow();
+            });
+        }
 
         electron.globalShortcut.register("CmdOrCtrl+Alt+O", () => {
             console.log("Froce to close!");
+            this.startScreenWindow.setClosable(true);
             this.startScreenWindow.close();
         });
     }
