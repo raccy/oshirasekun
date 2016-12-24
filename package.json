@@ -23,6 +23,7 @@
     "@types/jquery": "^2.0.34",
     "@types/node": "^6.0.51",
     "@types/node-getopt": "^0.2.29",
+    "@types/ramda": "0.0.2",
     "@types/react": "^0.14.50",
     "@types/react-dom": "^0.14.19",
     "@types/redux": "^3.6.31",
@@ -40,6 +41,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
     "node-getopt": "^0.2.3",
+    "ramda": "^0.22.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "redux": "^3.6.0"
