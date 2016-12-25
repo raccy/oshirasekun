@@ -3,7 +3,7 @@ const $ = jQuery;
 (<any>window).jQuery = (<any>window).$ = jQuery;
 import * as Tether from "tether";
 (<any>window).Tether = Tether;
-require("bootstrap");
+require("bootstrap"); // no types
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
