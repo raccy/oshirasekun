@@ -26,6 +26,7 @@
     "@types/ramda": "0.0.2",
     "@types/react": "^0.14.50",
     "@types/react-dom": "^0.14.19",
+    "@types/react-redux": "^4.4.35",
     "@types/redux": "^3.6.31",
     "@types/tether": "^1.1.27",
     "copyfiles": "^1.0.0",
@@ -35,8 +36,7 @@
     "node-sass": "^3.13.0",
     "pug": "^2.0.0-beta6",
     "pug-cli": "^1.0.0-alpha6",
-    "rimraf": "^2.5.4",
-    "typescript": "^2.0.10"
+    "rimraf": "^2.5.4"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
@@ -44,6 +44,8 @@
     "ramda": "^0.22.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "redux": "^3.6.0"
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-electron-store": "^0.4.1"
   }
 }

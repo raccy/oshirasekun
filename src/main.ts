@@ -1,5 +1,10 @@
 import * as electron from "electron";
 import * as R from "ramda";
+import { createStore, applyMiddleware, compose } from "redux";
+const ReduxElectronStore = require("redux-electron-store"); // no typess
+const electronEnhancer = ReduxElectronStore.electronEnhancer;
+import reducer from "./lib/reducers";
+import { setDebugMode } from "./lib/actions";
 
 const package_info = `${electron.app.getName()} ${electron.app.getVersion()}`;
 
@@ -15,6 +20,15 @@ const opt = Getopt.create([
         electron.app.quit();
     })
     .parseSystem();
+
+// Redux Store
+const enhancer = electronEnhancer({
+    dispachProxy: a => store.dispatch(a)
+});
+const store = createStore(reducer, {}, enhancer);
+if (opt.options.debug) {
+    store.dispatch(setDebugMode(true));
+}
 
 class MainApplication {
     startScreenWindow: Electron.BrowserWindow = null;
