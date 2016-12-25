@@ -7,12 +7,12 @@ require("bootstrap"); // no types
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Main from "./lib/component/main";
+import Main from "./components/main";
 
 import { createStore, applyMiddleware, compose } from "redux";
 const ReduxElectronStore = require("redux-electron-store"); // no typess
 const electronEnhancer = ReduxElectronStore.electronEnhancer;
-import reducer from "./lib/reducers";
+import reducer from "./reducers";
 // import { setDebugMode } from "./lib/actions";
 
 // Redux Store

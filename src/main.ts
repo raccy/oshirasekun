@@ -3,8 +3,8 @@ import * as R from "ramda";
 import { createStore, applyMiddleware, compose } from "redux";
 const ReduxElectronStore = require("redux-electron-store"); // no typess
 const electronEnhancer = ReduxElectronStore.electronEnhancer;
-import reducer from "./lib/reducers";
-import { setDebugMode } from "./lib/actions";
+import reducer from "./js/reducers";
+import { setDebugMode } from "./js/actions";
 
 const package_info = `${electron.app.getName()} ${electron.app.getVersion()}`;
 
@@ -73,7 +73,7 @@ class MainApplication {
 
         this.startScreenWindow = new electron.BrowserWindow(startScreemWindow);
 
-        this.startScreenWindow.loadURL("file://" + __dirname + "/index.html");
+        this.startScreenWindow.loadURL("file://" + __dirname + "/html/index.html");
 
         this.startScreenWindow.on("closed", () => {
             this.startScreenWindow = null;
