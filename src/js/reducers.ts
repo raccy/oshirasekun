@@ -2,8 +2,20 @@ import * as R from "ramda";
 import { combineReducers } from "redux";
 import { TYPE } from "./actions";
 
-const initialMode = {
+interface ModeState {
+    debug: boolean;
+}
+
+export interface AppState {
+    mode: ModeState;
+}
+
+const initialMode: ModeState = {
     debug: false
+};
+
+export const initialState: AppState = {
+    mode: initialMode
 };
 
 const mode = (state = initialMode, action) => {
@@ -15,6 +27,6 @@ const mode = (state = initialMode, action) => {
     }
 };
 
-export default combineReducers({
+export const reducer = combineReducers<AppState>({
     mode,
 });
