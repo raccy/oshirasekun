@@ -85,6 +85,10 @@ class MainApplication {
             });
         }
 
+        if (this.debug) {
+            this.startScreenWindow.webContents.openDevTools();
+        }
+
         electron.globalShortcut.register("CmdOrCtrl+Alt+O", () => {
             console.log("Froce to close!");
             this.startScreenWindow.setClosable(true);
