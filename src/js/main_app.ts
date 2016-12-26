@@ -3,6 +3,7 @@ import * as R from "ramda";
 import * as Redux from "redux";
 import { AppState } from "./reducers";
 import { Options } from "./opt_parse";
+import { setDebugMode } from "./actions";
 
 export default class MainApp {
     private startScreenWindow: Electron.BrowserWindow = null;
@@ -60,8 +61,7 @@ export default class MainApp {
             });
         }
 
-        // if (this.opt.options.debug) {
-        if (this.store.getState().mode.debug) {
+        if (this.opt.options.debug) {
             this.startScreenWindow.webContents.openDevTools();
         }
 
@@ -70,6 +70,13 @@ export default class MainApp {
             this.startScreenWindow.setClosable(true);
             this.startScreenWindow.close();
         });
+
+        this.startScreenWindow.on("show", () => {
+            if (this.opt.options.debug) {
+                this.store.dispatch(setDebugMode(true));
+            }
+        });
+
     }
 
     focusstartScreenWindow() {

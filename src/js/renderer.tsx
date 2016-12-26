@@ -8,11 +8,11 @@ import { Provider } from "react-redux";
 
 import StartScreenMain from "./components/start_screen_main";
 
-import { storeWithFilter } from "./stores";
+import { store } from "./stores";
 
 const mainContent = document.getElementById("main");
 render(
-    <Provider store={storeWithFilter}>
+    <Provider store={store}>
         <StartScreenMain />
     </Provider>,
     mainContent
