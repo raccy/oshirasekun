@@ -1,6 +1,7 @@
 import * as R from "ramda";
 import { combineReducers } from "redux";
-import { TYPE } from "./actions";
+import { SET_DEBUG_MODE } from "./actions";
+import { handleActions } from "redux-actions";
 
 interface ModeState {
     debug: boolean;
@@ -18,14 +19,9 @@ export const initialState: AppState = {
     mode: initialMode
 };
 
-const mode = (state = initialMode, action) => {
-    switch (action.type) {
-        case TYPE.SET_DEBUG_MODE:
-            return R.merge(state, { debug: action.flag });
-        default:
-            return state;
-    }
-};
+const mode = handleActions({
+    SET_DEBUG_MODE: (state, action) => ({ debug: action.payload.debug })
+}, initialMode);
 
 export const reducer = combineReducers<AppState>({
     mode,
