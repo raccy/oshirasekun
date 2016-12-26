@@ -42,7 +42,7 @@ export default class MainApp {
                 closable: true,
                 alwaysOnTop: false,
                 fullscreen: false,
-                kiosk: false,
+                kiosk: false
             });
         }
 
