@@ -1,7 +1,7 @@
 import { app } from "electron";
 
 import optParse from "./js/opt_parse";
-import store from "./js/store";
+import { store } from "./js/stores";
 import { setDebugMode } from "./js/actions";
 import MainApp from "./js/main_app";
 

@@ -3,9 +3,17 @@ const ReduxElectronStore = require("redux-electron-store"); // no typess
 const electronEnhancer = ReduxElectronStore.electronEnhancer;
 import { reducer, initialState, AppState } from "./reducers";
 
+const filter = {
+    mode: true
+};
+
 const enhancer = electronEnhancer({
     dispachProxy: a => store.dispatch(a)
 });
-const store = createStore<AppState>(reducer, initialState, enhancer);
+const enhancerWithFilter = electronEnhancer({
+    filter,
+    dispachProxy: a => storeWithFilter.dispatch(a)
+});
+export const store = createStore<AppState>(reducer, initialState, enhancer);
 
-export default store;
+export const storeWithFilter = createStore<AppState>(reducer, initialState, enhancerWithFilter);
