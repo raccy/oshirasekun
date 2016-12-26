@@ -6,14 +6,14 @@ import * as React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 
-import Main from "./components/main";
+import StartScreenMain from "./components/start_screen_main";
 
 import { storeWithFilter } from "./stores";
 
 const mainContent = document.getElementById("main");
 render(
     <Provider store={storeWithFilter}>
-        <Main />
+        <StartScreenMain />
     </Provider>,
     mainContent
 );

@@ -8,11 +8,11 @@ const filter = {
 };
 
 const enhancer = electronEnhancer({
-    dispachProxy: a => store.dispatch(a)
+    dispatchProxy: a => store.dispatch(a)
 });
 const enhancerWithFilter = electronEnhancer({
     filter,
-    dispachProxy: a => storeWithFilter.dispatch(a)
+    dispatchProxy: a => storeWithFilter.dispatch(a)
 });
 export const store = createStore<AppState>(reducer, initialState, enhancer);
 
