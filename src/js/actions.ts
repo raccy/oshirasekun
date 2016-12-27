@@ -1,7 +1,7 @@
 import { createAction } from "redux-actions";
 
-export const SET_DEBUG_MODE = "SET_DEBUG_MODE";
-export const sedDebugMode = createAction(SET_DEBUG_MODE);
+export const ENABLE_DEBUG_MODE = "ENABLE_DEBUG_MODE";
+export const enableDebugMode = createAction(ENABLE_DEBUG_MODE);
 
 // UI Actinons
 export const LOGIN_USER = "LOGIN_USER";

@@ -10,16 +10,21 @@ import thunk from "redux-thunk";
 const middleware: Middleware[] = [thunk];
 
 const enhancer = compose<AppState, any>(
-    thunk,
+    <any>applyMiddleware(...middleware),
     electronEnhancer({
         dispatchProxy: a => store.dispatch(a),
     })
 );
 
+// const enhancer = electronEnhancer({
+//     dispatchProxy: a => store.dispatch(a),
+// });
+
 // const enhancerWithFilter = electronEnhancer({
 //     filter,
 //     dispatchProxy: a => storeWithFilter.dispatch(a)
 // });
-export const store = createStore<AppState>(reducer, initialState, enhancer);
+const store = createStore<AppState>(reducer, initialState, enhancer);
+export default store;
 
 // export const storeWithFilter = createStore<AppState>(reducer, initialState, enhancerWithFilter);

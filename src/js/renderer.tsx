@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 
 import StartScreenMain from "./components/start_screen_main";
 
-import { store } from "./stores";
+import store from "./stores";
 
 const mainContent = document.getElementById("main");
 render(
