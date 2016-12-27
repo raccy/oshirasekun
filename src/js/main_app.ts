@@ -3,7 +3,6 @@ import * as R from "ramda";
 import * as Redux from "redux";
 import { AppState } from "./reducers";
 import { Options } from "./opt_parse";
-// import { setDebugMode } from "./actions";
 
 export default class MainApp {
     private startScreenWindow: Electron.BrowserWindow = null;
