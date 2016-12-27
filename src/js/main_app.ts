@@ -72,12 +72,6 @@ export default class MainApp {
             this.startScreenWindow.close();
         });
 
-        // this.startScreenWindow.on("show", () => {
-        //     if (this.opt.options.debug) {
-        //         this.store.dispatch(setDebugMode(true));
-        //     }
-        // });
-
     }
 
     focusstartScreenWindow() {
