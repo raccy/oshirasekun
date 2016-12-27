@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose, Middleware } from "redux";
+import { createStore, applyMiddleware, compose, Middleware, Store } from "redux";
 const ReduxElectronStore = require("redux-electron-store"); // no typess
 const electronEnhancer = ReduxElectronStore.electronEnhancer;
 import { reducer, initialState, AppState } from "./reducers";
@@ -9,8 +9,8 @@ import thunk from "redux-thunk";
 // };
 const middleware: Middleware[] = [thunk];
 
-const enhancer = compose<AppState, any>(
-    <any>applyMiddleware(...middleware),
+const enhancer = <any>compose(
+    applyMiddleware(...middleware),
     electronEnhancer({
         dispatchProxy: a => store.dispatch(a),
     })

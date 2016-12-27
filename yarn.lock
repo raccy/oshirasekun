@@ -17,8 +17,8 @@
   resolved "https://registry.yarnpkg.com/@types/node-getopt/-/node-getopt-0.2.29.tgz#77f710c990dc75a8dc459a23e84ae17945ffb2ab"
 
 "@types/node@*", "@types/node@^6.0.51":
-  version "6.0.53"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.53.tgz#8c300ca8ba51f80f98f3525b932ff47c6efd6be1"
+  version "6.0.54"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.54.tgz#65859962ba988052cbdd5c48881395acfdd46931"
 
 "@types/ramda@0.0.2":
   version "0.0.2"
@@ -46,10 +46,10 @@
   resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-0.8.34.tgz#ed99b9aadececdae0e0f5c4fb8a5baef3fb522ed"
 
 "@types/redux-thunk@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.0.tgz#bc2b6e972961831afb82a9bf4f06726e351f9416"
+  version "2.1.32"
+  resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.32.tgz#27fac368ced9ea170bf15e5fa4a21d9201f73102"
   dependencies:
-    redux-thunk "*"
+    redux "^3.6.0"
 
 "@types/redux@^3.6.31":
   version "3.6.31"
@@ -1189,7 +1189,7 @@ lru-cache@^4.0.1:
 
 ltcdr@^2.2.1:
   version "2.2.1"
-  resolved "http://registry.npmjs.org/ltcdr/-/ltcdr-2.2.1.tgz#5ab87ad1d4c1dab8e8c08bbf037ee0c1902287cf"
+  resolved "https://registry.yarnpkg.com/ltcdr/-/ltcdr-2.2.1.tgz#5ab87ad1d4c1dab8e8c08bbf037ee0c1902287cf"
 
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
@@ -1262,7 +1262,7 @@ mkpath@^0.1.0:
 
 mksnapshot@^0.3.0:
   version "0.3.0"
-  resolved "http://registry.npmjs.org/mksnapshot/-/mksnapshot-0.3.0.tgz#32ea984ad6f532324c6a3fae6400876b85828407"
+  resolved "https://registry.yarnpkg.com/mksnapshot/-/mksnapshot-0.3.0.tgz#32ea984ad6f532324c6a3fae6400876b85828407"
   dependencies:
     decompress-zip "0.3.0"
     fs-extra "0.26.7"
@@ -1797,7 +1797,7 @@ redux-electron-store@^0.4.1:
   dependencies:
     lodash "^4.13.1"
 
-redux-thunk@*, redux-thunk@^2.1.0:
+redux-thunk@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.1.0.tgz#c724bfee75dbe352da2e3ba9bc14302badd89a98"
 
