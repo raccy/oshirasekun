@@ -21,6 +21,8 @@
   "devDependencies": {
     "@types/electron": "1.4.28",
     "@types/jquery": "^2.0.34",
+    "@types/js-yaml": "^3.5.29",
+    "@types/marked": "^0.0.28",
     "@types/node": "^6.0.51",
     "@types/node-getopt": "^0.2.29",
     "@types/ramda": "0.0.2",
@@ -43,6 +45,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
+    "js-yaml": "^3.7.0",
+    "marked": "^0.3.6",
     "node-getopt": "^0.2.3",
     "ramda": "^0.22.1",
     "react": "^15.4.1",
