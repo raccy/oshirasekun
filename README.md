@@ -2,7 +2,9 @@
 
 yarnを推奨
 
-## ビルド
+## 使い方
+
+### ビルド
 
 ```
 $ yarn install
@@ -10,7 +12,7 @@ $ yarn run build
 $ yarn run package
 ```
 
-## テスト
+### テスト
 
 ```
 $ yarn run debug
