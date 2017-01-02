@@ -1,0 +1,26 @@
+# お知らせ君設定ファイル
+---
+control:
+  # remoteはまだ
+  type: local
+  fallback: local
+admin:
+  password: admin
+start_screen:
+  login:
+    require: true
+    # ldap, ad, mount, web, command
+    method: mount
+    # Handlebarsを使用する。エスケープ処理は行わない。
+    path: //fs.example.jp/{{username}}$
+    # 将来的には何をエスケープするのかマップで指定したいけど、まだできない。
+    escape_map: {}
+    option: Z
+　news:
+    show: true
+    # plain, markdown, gfm, [asciidoc, review, textile, html]
+    type: markdown
+    # UTF-8以外は現在サポートしていない
+    encode: UTF-8
+    # このファイルからの相対パス、または絶対パスやURL
+    path: ./oshirasekun
