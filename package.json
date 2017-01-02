@@ -20,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/electron": "1.4.28",
+    "@types/handlebars": "^4.0.31",
     "@types/jquery": "^2.0.34",
     "@types/js-yaml": "^3.5.29",
     "@types/marked": "^0.0.28",
@@ -45,6 +46,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
+    "handlebars": "^4.0.6",
     "js-yaml": "^3.7.0",
     "marked": "^0.3.6",
     "node-getopt": "^0.2.3",
