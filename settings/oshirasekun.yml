@@ -9,13 +9,20 @@ admin:
 start_screen:
   login:
     require: true
-    # ldap, ad, mount, web, command
-    method: mount
+    # ldap, ad, mount, web, command, dummy
+    # ldap, ad … LDAPまたはADの認証を行う。
+    # mount … pathにマウントまたは接続を行う。
+    # web … 特定サイトにWeb認証する。BASIC認証のみ対応。
+    # command … コマンドを実行する。コマンドが成功すれば良い。
+    # dummy … ユーザ名とパスワードが同じなら何でも通るテスト用のダミー
+    method: dummy
     # Handlebarsを使用する。エスケープ処理は行わない。
     path: //fs.example.jp/{{username}}$
     # 将来的には何をエスケープするのかマップで指定したいけど、まだできない。
     escape_map: {}
-    option: Z
+    option:
+      drive: Z
+      domain: localnet
 　news:
     show: true
     # plain, markdown, gfm, [asciidoc, review, textile, html]
