@@ -1,15 +1,17 @@
 # お知らせ君
 
+yarnを推奨
+
 ## ビルド
 
 ```
-$ npm install
-$ npm run build
-$ npm run package
+$ yarn install
+$ yarn run build
+$ yarn run package
 ```
 
 ## テスト
 
 ```
-$ npm run debug
+$ yarn run debug
 ```
