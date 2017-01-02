@@ -23,4 +23,4 @@ start_screen:
     # UTF-8以外は現在サポートしていない
     encode: UTF-8
     # このファイルからの相対パス、または絶対パスやURL
-    path: ./oshirasekun
+    path: ./oshirasekun.md
