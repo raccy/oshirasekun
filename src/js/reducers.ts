@@ -7,16 +7,26 @@ interface ModeState {
     debug: boolean;
 }
 
+interface ConfigState {
+    loaded: boolean;
+}
+
 export interface AppState {
     mode: ModeState;
+    config: ConfigState;
 }
 
 const initialMode: ModeState = {
     debug: false
 };
 
+const initialConfig: ConfigState = {
+    loaded: false
+};
+
 export const initialState: AppState = {
-    mode: initialMode
+    mode: initialMode,
+    config: initialConfig
 };
 
 const mode = handleActions({

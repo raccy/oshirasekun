@@ -3,20 +3,28 @@ const Getopt = require("node-getopt");
 
 export interface Options {
     argv: string[];
-    options: { debug: boolean };
+    options: {
+        debug: boolean,
+        config: string
+    };
 }
 
-const package_info = `${app.getName()} ${app.getVersion()}`;
+const package_info = `${app.getName()} - version ${app.getVersion()}`;
 const options = [
+    ["c", "config=FILE", "config file"],
     ["d", "debug", "debug mode"],
     ["h", "help", "display this help"],
     ["v", "version", "show version"]
 ];
-const helpTemplate = `${package_info}\nUsage: oshirasekun [options]\n\n[[OPTIONS]]\n`;
-const appQuit = () => app.quit();
+const helpTemplate = `${package_info}
+Usage: oshirasekun [options]
+
+[[OPTIONS]]
+`;
+const appExit = (exitCode = 0) => app.exit(exitCode);
 const displayVersionAndQuit = () => {
     console.info(package_info);
-    appQuit();
+    appExit();
 };
 const getOpt = Getopt.create(options)
     .bindHelp(helpTemplate)
