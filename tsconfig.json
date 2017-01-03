@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "alwaysStrict": true,
+    "module": "CommonJS",
     "moduleResolution": "node",
     "outDir": "dst",
-    "jsx": "react"
+    "jsx": "React",
+    "newLine": "lf",
+    "removeComments": true,
+    "target": "ES2015"
   },
   "include": [
     "src/**/*.ts",
