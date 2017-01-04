@@ -1,6 +1,6 @@
 import * as R from "ramda";
 import { combineReducers } from "redux";
-import { ENABLE_DEBUG_MODE } from "./actions";
+import { ENABLE_DEBUG_MODE, CONFIG_LOADED } from "./actions";
 import { handleActions } from "redux-actions";
 
 interface ModeState {
@@ -33,6 +33,11 @@ const mode = handleActions({
     ENABLE_DEBUG_MODE: (state, action) => ({ debug: true })
 }, initialMode);
 
+const config = handleActions({
+    CONFIG_LOADED: (state, action) => ({ loaded: true })
+}, initialConfig);
+
 export const reducer = combineReducers<AppState>({
     mode,
+    config
 });
