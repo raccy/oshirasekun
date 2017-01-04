@@ -35,7 +35,12 @@ export default class Config {
                 this.store.dispatch(configLoad(err));
                 return;
             }
-            this.loadData(safeLoad(data));
+
+            try {
+                this.loadData(safeLoad(data));
+            } catch (e) {
+                this.store.dispatch(configLoad(e));
+            }
         });
     }
     loadData(config) {
