@@ -4,13 +4,15 @@ const Footer = ({debugMode}) => {
     const modeList = [];
     if (debugMode) {
         modeList.push(
-            <p key="debug_mode">デバッグモード</p>
+            <span className="tag tag-danger" key="debug_mode">デバッグ</span>
         );
     }
-    console.log(debugMode);
     return (
-        <footer>
-            {modeList}
+        <footer role="footer">
+            <hr />
+            <div className="tags">
+                {modeList}
+            </div>
         </footer>
     );
 };

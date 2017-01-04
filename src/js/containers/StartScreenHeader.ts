@@ -1,17 +1,16 @@
 import { connect } from "react-redux";
-import Footer from "../components/footer";
+import Header from "../components/Header";
 
 const mapStateToProps = (state) => {
-    return {
-        debugMode: state.mode.debug
-    };
+    return {};
 };
 const mapDispachToProps = (dispach) => {
     return {};
 };
-const InformationFooter = connect(
+
+const StartStreenHeader = connect(
     mapStateToProps,
     mapDispachToProps
-)(Footer);
+)(Header);
 
-export default InformationFooter;
+export default StartStreenHeader;
