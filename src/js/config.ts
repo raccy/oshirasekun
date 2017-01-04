@@ -2,7 +2,7 @@ import { safeLoad } from "js-yaml";
 import { readFile } from "fs";
 import { Store } from "redux";
 import { AppState } from "./reducers";
-import { configLoaded } from "./actions";
+import { configLoad } from "./actions";
 
 /**
  * コンフィグクラス
@@ -31,12 +31,15 @@ export default class Config {
 
     loadFile(filePath) {
         readFile(filePath, "utf8", (err, data) => {
-            if (err) throw err;
+            if (err) {
+                this.store.dispatch(configLoad(err));
+                return;
+            }
             this.loadData(safeLoad(data));
         });
     }
     loadData(config) {
-        this.store.dispatch(configLoaded());
+        this.store.dispatch(configLoad(true));
     }
 
 }

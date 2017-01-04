@@ -53,9 +53,9 @@
   version "0.14.55"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.55.tgz#f7f7a6ad0c94780531e95632435b2798c5dad11b"
 
-"@types/redux-actions@^0.8.34":
-  version "0.8.34"
-  resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-0.8.34.tgz#ed99b9aadececdae0e0f5c4fb8a5baef3fb522ed"
+"@types/redux-actions@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-1.2.2.tgz#2f90cd3ecde5c37a47a90caf4df1ffd34e2e29dd"
 
 "@types/redux-thunk@^2.1.0":
   version "2.1.32"

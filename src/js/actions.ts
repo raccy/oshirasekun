@@ -26,5 +26,5 @@ export const loginProcessCompleted = createAction(LOGIN_PROCESS_COMPLETED);
 export const POST_LOGIN_PROCESS_COMPLETED = "POST_LOGIN_PROCESS_COMPLETED";
 export const postLoginProcessCompleted = createAction(POST_LOGIN_PROCESS_COMPLETED);
 
-export const CONFIG_LOADED = "CONFIG_LOADED";
-export const configLoaded = createAction(CONFIG_LOADED);
+export const CONFIG_LOAD = "CONFIG_LOAD";
+export const configLoad = createAction(CONFIG_LOAD);
