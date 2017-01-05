@@ -2,8 +2,16 @@ import { connect } from "react-redux";
 import Footer from "../components/Footer";
 
 const mapStateToProps = (state) => {
+    const modeList = [];
+    if (state.mode.debug) {
+        modeList.push({
+            name: "debug",
+            text: "デバッグ",
+            level: "danger"
+        });
+    }
     return {
-        debugMode: state.mode.debug
+        modeList
     };
 };
 const mapDispachToProps = (dispach) => {

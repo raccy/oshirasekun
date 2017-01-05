@@ -1,17 +1,16 @@
 import * as React from "react";
 
-const Footer = ({debugMode}) => {
-    const modeList = [];
-    if (debugMode) {
-        modeList.push(
-            <span className="tag tag-danger" key="debug_mode">デバッグ</span>
-        );
-    }
+const Footer = ({modeList}) => {
+    const modeContents = modeList.map((mode) => (
+        <span className={`tag tag-${mode.level}`} key={mode.name}>
+            {mode.text}
+        </span>
+    ));
     return (
         <footer role="footer">
             <hr />
             <div className="tags">
-                {modeList}
+                {modeContents}
             </div>
         </footer>
     );

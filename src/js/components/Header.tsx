@@ -1,10 +1,10 @@
 import * as React from "react";
 
-const Footer = ({debugMode}) => {
+const Footer = ({title}) => {
     return (
         <header role="header">
             <h2>
-                端末認証/お知らせ
+                {title}
             </h2>
         </header>
     );

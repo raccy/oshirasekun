@@ -2,7 +2,9 @@ import { connect } from "react-redux";
 import Header from "../components/Header";
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        title: "認証"
+    };
 };
 const mapDispachToProps = (dispach) => {
     return {};

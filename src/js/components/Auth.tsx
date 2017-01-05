@@ -6,11 +6,11 @@ const Auth = () => {
             <form>
                 <div className="form-group">
                     <label htmlFor="inputUsername">ユーザー名</label>
-                    <input id="inputUsername" className="form-control" type="text" placeholder="username..." />
+                    <input id="inputUsername" className="form-control" type="text" placeholder="ユーザー名 ..." />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="inputPassword">ユーザー名</label>
-                    <input id="inputPassword" className="form-control" type="text" placeholder="password..." />
+                    <label htmlFor="inputPassword">パスワード</label>
+                    <input id="inputPassword" className="form-control" type="password" placeholder="パスワード ..." />
                 </div>
                 <button type="submit" className="btn btn-primary">
                     ログイン
