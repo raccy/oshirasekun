@@ -39,10 +39,10 @@ const mode = handleActions({
 const config = handleActions<ConfigState, boolean | Error>({
     CONFIG_LOAD: {
         next(state, action) {
-            return R.merge(state, { loaded: action.payload })
+            return R.merge(state, { loaded: action.payload });
         },
         throw(state, action) {
-            return R.merge(state, { error: action.payload })
+            return R.merge(state, { error: action.payload });
         }
     }
 }, initialConfig);
