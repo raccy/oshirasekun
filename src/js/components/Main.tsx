@@ -15,7 +15,7 @@ const Footer = ({mainMode}) => {
             );
             break;
         case "auth":
-            content = <Auth />
+            content = <Auth />;
             break;
         case "news":
             break;
