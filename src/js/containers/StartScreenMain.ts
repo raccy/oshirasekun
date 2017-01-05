@@ -6,14 +6,18 @@ const mapStateToProps = (state) => {
     if (!state.config.loaded) {
         mainMode = "loading";
     } else {
-        mainMode = "auth"
+        mainMode = "auth";
     }
     return {
         mainMode
     };
 };
 const mapDispachToProps = (dispach) => {
-    return {};
+    return {
+        handleAuth: (values) => {
+            console.log(values);
+        }
+    };
 };
 
 const StartStreenMain = connect(

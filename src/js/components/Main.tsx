@@ -1,7 +1,7 @@
 import * as React from "react";
 import Auth from "./Auth";
 
-const Footer = ({mainMode}) => {
+const Footer = ({mainMode, handleAuth}) => {
     let content = null;
     switch (mainMode) {
         case "loading":
@@ -15,7 +15,7 @@ const Footer = ({mainMode}) => {
             );
             break;
         case "auth":
-            content = <Auth />;
+            content = <Auth onSubmit={handleAuth} />;
             break;
         case "news":
             break;

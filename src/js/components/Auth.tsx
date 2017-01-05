@@ -1,26 +1,30 @@
 import * as React from "react";
+import { Field, reduxForm } from "redux-form";
+import FieldInput from "./FieldInput";
 
-const Auth = () => {
+const Auth = ({handleSubmit}) => {
     return (
-        <div>
-            <form>
-                <div className="form-group">
-                    <label htmlFor="inputUsername">ユーザー名</label>
-                    <input id="inputUsername" className="form-control" type="text" placeholder="ユーザー名 ..." />
+        <div className="auth">
+            <div className="information">
+            </div>
+            <form onSubmit={handleSubmit}>
+                <Field name="username" displayName="ユーザー名" type="text" component={FieldInput} />
+                <Field name="password" displayName="パスワード" type="password" component={FieldInput} />
+                <div className="row">
+                    <div className="offset-xs-2 col-xs-8 clearfix">
+                        <button className="btn btn-default  float-xs-right ml-1" type="reset">
+                            リセット
+                    </button>
+                        <button className="btn btn-primary float-xs-right ml-1" type="submit">
+                            ログイン
+                    </button>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="inputPassword">パスワード</label>
-                    <input id="inputPassword" className="form-control" type="password" placeholder="パスワード ..." />
-                </div>
-                <button type="submit" className="btn btn-primary">
-                    ログイン
-                </button>
-                <button type="reset" className="btn btn-default">
-                    シャットダウン
-                </button>
             </form>
-        </div>
-    )
-}
+        </div >
+    );
+};
 
-export default Auth;
+export default reduxForm({
+    form: "auth"
+})(Auth as any);
