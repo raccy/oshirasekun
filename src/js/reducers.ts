@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import { ENABLE_DEBUG_MODE, configLoad } from "./actions";
 import { handleActions, handleAction } from "redux-actions";
 import { reducer as formReducer } from "redux-form";
+import * as url from "url";
 
 interface ModeState {
     debug: boolean;
@@ -34,7 +35,7 @@ interface AuthState {
     password: string | null;
     realm: string | null;
     method: AuthMethod;
-    path: string | null;
+    path: URL | null;
     option: any;
     error: Error | null;
 }
