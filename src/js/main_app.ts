@@ -49,7 +49,7 @@ export default class MainApp {
 
         this.startScreenWindow = new electron.BrowserWindow(startScreemWindow);
 
-        this.startScreenWindow.loadURL("file://" + __dirname + "/../html/index.html");
+        this.startScreenWindow.loadURL("file://" + __dirname + "/../html/start_screen.html");
 
         this.startScreenWindow.on("closed", () => {
             this.startScreenWindow = null;
