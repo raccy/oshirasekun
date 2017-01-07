@@ -11,7 +11,8 @@ interface ModeState {
 
 interface ConfigState {
     loaded: boolean;
-    error: Error;
+    path?: URL | string;
+    error?: Error;
 }
 
 /**
@@ -31,13 +32,13 @@ type AuthMethod = "ldap" | "ad" | "mount" | "web" | "command" | "dummy" | "none"
 interface AuthState {
     required: boolean;
     loggedIn: boolean;
-    username: string | null;
-    password: string | null;
-    realm: string | null;
+    username?: string;
+    password?: string;
+    realm?: string;
     method: AuthMethod;
-    path: URL | null;
-    option: any;
-    error: Error | null;
+    path?: url.Url | string;
+    option?: any;
+    error?: Error;
 }
 
 export interface AppState {
@@ -51,20 +52,13 @@ const initialMode: ModeState = {
 };
 
 const initialConfig: ConfigState = {
-    loaded: false,
-    error: null
+    loaded: false
 };
 
 const initialAuth: AuthState = {
     required: true,
     loggedIn: false,
-    username: null,
-    password: null,
-    realm: null,
     method: "none",
-    path: null,
-    option: null,
-    error: null
 };
 
 export const initialState: AppState = {
@@ -77,10 +71,10 @@ const mode = handleActions({
     ENABLE_DEBUG_MODE: (state, action) => ({ debug: true })
 }, initialMode);
 
-const config = handleActions<ConfigState, boolean | Error>({
+const config = handleActions<ConfigState, URL | Error>({
     CONFIG_LOAD: {
         next(state, action) {
-            return R.merge(state, { loaded: action.payload });
+            return R.merge(state, { loaded: true, path: action.payload });
         },
         throw(state, action) {
             return R.merge(state, { error: action.payload });
