@@ -10,7 +10,7 @@ import MainApp from "./js/main_app";
 // エラー発生時に閉じる
 store.subscribe(() => {
     const state = store.getState();
-    const error = state.config.error
+    const error = state.config.error;
     if (error) {
         console.error(`${error.name}:  ${error.message}`);
         app.exit(1);
