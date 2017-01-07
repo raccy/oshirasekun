@@ -13,9 +13,36 @@ interface ConfigState {
     error: Error;
 }
 
+/**
+ * 認証メソッドを示すストリングリテラル型
+ * それぞれは下記の意味
+ * - "ldap" LDAP認証
+ * - "ad" AD認証
+ * - "mount" ファイル共有マウント
+ * - "web" Web認証
+ * - "command" 任意のコマンド
+ * - "dummy" ダミー、テスト用
+ * - "none" 認証無し、ログイン不可
+ * - "local" ローカル認証
+ */
+type AuthMethod = "ldap" | "ad" | "mount" | "web" | "command" | "dummy" | "none" | "local";
+
+interface AuthState {
+    required: boolean;
+    loggedIn: boolean;
+    username: string | null;
+    password: string | null;
+    realm: string | null;
+    method: AuthMethod;
+    path: string | null;
+    option: any;
+    error: Error | null;
+}
+
 export interface AppState {
     mode: ModeState;
     config: ConfigState;
+    auth: AuthState;
 }
 
 const initialMode: ModeState = {
@@ -27,9 +54,22 @@ const initialConfig: ConfigState = {
     error: null
 };
 
+const initialAuth: AuthState = {
+    required: true,
+    loggedIn: false,
+    username: null,
+    password: null,
+    realm: null,
+    method: "none",
+    path: null,
+    option: null,
+    error: null
+};
+
 export const initialState: AppState = {
     mode: initialMode,
-    config: initialConfig
+    config: initialConfig,
+    auth: initialAuth
 };
 
 const mode = handleActions({
