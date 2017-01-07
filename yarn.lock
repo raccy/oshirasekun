@@ -282,12 +282,6 @@ buffer-shims@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
-buffered-spawn@^3.0.0, buffered-spawn@^3.2.0:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/buffered-spawn/-/buffered-spawn-3.3.2.tgz#97b9846c4e446aa23320b4a94c5209edd32dacbb"
-  dependencies:
-    cross-spawn "^4.0.0"
-
 buffers@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/buffers/-/buffers-0.1.1.tgz#b24579c3bed4d6d396aeee6d9a8ae7f5482ab7bb"
@@ -459,13 +453,6 @@ cross-spawn@^3.0.0:
     lru-cache "^4.0.1"
     which "^1.2.9"
 
-cross-spawn@^4.0.0:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-4.0.2.tgz#7b9247621c23adfdd3856004a823cbe397424d41"
-  dependencies:
-    lru-cache "^4.0.1"
-    which "^1.2.9"
-
 cryptiles@2.x.x:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-2.0.5.tgz#3bdfecdc608147c1c67202fa291e7dca59eaa3b8"
@@ -531,13 +518,6 @@ deep-equal@^1.0.1:
 deep-extend@~0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.1.tgz#efe4113d08085f4e6f9687759810f807469e2253"
-
-deep-rename-keys@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/deep-rename-keys/-/deep-rename-keys-0.1.0.tgz#17277da45d086f9c272f0e17504746e52372c11a"
-  dependencies:
-    kind-of "^1.0.0"
-    rename-keys "^1.1.0"
 
 delayed-stream@0.0.5:
   version "0.0.5"
@@ -775,10 +755,6 @@ fstream@^1.0.0, fstream@^1.0.2:
     inherits "~2.0.0"
     mkdirp ">=0.5 0"
     rimraf "2"
-
-fswalk@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fswalk/-/fswalk-1.2.0.tgz#867ffb1a71d1a15cb72356559cbed74637e6366b"
 
 gauge@~2.6.0:
   version "2.6.0"
@@ -1176,10 +1152,6 @@ jstransformer@1.0.0:
   dependencies:
     is-promise "^2.0.0"
     promise "^7.0.1"
-
-kind-of@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-1.1.0.tgz#140a3d2d41a36d2efcfa9377b62c24f8495a5c44"
 
 kind-of@^3.0.2:
   version "3.1.0"
@@ -1779,10 +1751,6 @@ qs@~6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.0.tgz#f403b264f23bc01228c74131b407f18d5ea5d442"
 
-ramda@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
-
 ramda@^0.22.1:
   version "0.22.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
@@ -1948,10 +1916,6 @@ redux@^3.6.0:
     lodash-es "^4.2.1"
     loose-envify "^1.1.0"
     symbol-observable "^1.0.2"
-
-rename-keys@^1.1.0:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/rename-keys/-/rename-keys-1.1.2.tgz#dc95b161a99aa05d812a42ca4f8c5e1c9479e3aa"
 
 repeat-string@^1.5.2:
   version "1.6.1"
@@ -2238,22 +2202,6 @@ tmp@0.0.28:
   dependencies:
     os-tmpdir "~1.0.1"
 
-to-camel-case@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/to-camel-case/-/to-camel-case-1.0.0.tgz#1a56054b2f9d696298ce66a60897322b6f423e46"
-  dependencies:
-    to-space-case "^1.0.0"
-
-to-no-case@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/to-no-case/-/to-no-case-1.0.2.tgz#c722907164ef6b178132c8e69930212d1b4aa16a"
-
-to-space-case@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/to-space-case/-/to-space-case-1.0.0.tgz#b052daafb1b2b29dc770cea0163e5ec0ebc9fc17"
-  dependencies:
-    to-no-case "^1.0.0"
-
 token-stream@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/token-stream/-/token-stream-0.0.1.tgz#ceeefc717a76c4316f126d0b9dbaa55d7e7df01a"
@@ -2377,23 +2325,6 @@ window-size@0.1.0:
 window-size@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
-
-windows-fs@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/windows-fs/-/windows-fs-1.2.0.tgz#fea9e70acf5cde6a07b2a3b096c5c98a91777452"
-  dependencies:
-    buffered-spawn "^3.0.0"
-    fswalk "^1.2.0"
-    ramda "^0.21.0"
-    windows-powershell "^0.1.0"
-
-windows-powershell@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/windows-powershell/-/windows-powershell-0.1.1.tgz#a613aa428558843fd7fdf8cab044ad602e3b7a26"
-  dependencies:
-    buffered-spawn "^3.2.0"
-    deep-rename-keys "^0.1.0"
-    to-camel-case "^1.0.0"
 
 with@^5.0.0:
   version "5.1.1"
