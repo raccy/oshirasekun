@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
+    "strictNullChecks": true,
     "module": "CommonJS",
     "moduleResolution": "node",
     "outDir": "dst",

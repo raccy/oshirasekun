@@ -5,7 +5,7 @@ import { AppState } from "./reducers";
 import { Options } from "./opt_parse";
 
 export default class MainApp {
-    private startScreenWindow: Electron.BrowserWindow = null;
+    private startScreenWindow: Electron.BrowserWindow | null = null;
     private hoge: AppState;
 
     constructor(public app: Electron.App, private opt: Options, private store: Redux.Store<AppState>) {
@@ -67,8 +67,8 @@ export default class MainApp {
 
         electron.globalShortcut.register("CmdOrCtrl+Alt+O", () => {
             console.log("Froce to close!");
-            this.startScreenWindow.setClosable(true);
-            this.startScreenWindow.close();
+            this.startScreenWindow!.setClosable(true);
+            this.startScreenWindow!.close();
         });
 
     }
@@ -79,18 +79,18 @@ export default class MainApp {
         // https://github.com/electron/electron/issues/2867
         if (process.platform === "win32") {
             // Windows 10 では一度minimizeしないとフォーカスが取れない。
-            this.startScreenWindow.minimize();
-            this.startScreenWindow.setFullScreen(true);
-            this.startScreenWindow.focus();
+            this.startScreenWindow!.minimize();
+            this.startScreenWindow!.setFullScreen(true);
+            this.startScreenWindow!.focus();
             // スタートメニューは連続して取ろうとするため、
             //  確認後に再度奪われていれば設定する。
             setTimeout(() => {
-                if (!this.startScreenWindow.isFocused()) {
+                if (!this.startScreenWindow!.isFocused()) {
                     this.focusstartScreenWindow();
                 }
             }, 1000);
         } else {
-            this.startScreenWindow.focus();
+            this.startScreenWindow!.focus();
         }
     }
 }
