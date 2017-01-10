@@ -64,13 +64,19 @@
     "@types/react" "*"
     redux "^3.6.0"
 
+"@types/redux-logger@^2.6.32":
+  version "2.6.32"
+  resolved "https://registry.yarnpkg.com/@types/redux-logger/-/redux-logger-2.6.32.tgz#017cac5dfeef9616f06e41114b7a03a9caa13141"
+  dependencies:
+    "@types/redux" "*"
+
 "@types/redux-thunk@^2.1.0":
   version "2.1.32"
   resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.32.tgz#27fac368ced9ea170bf15e5fa4a21d9201f73102"
   dependencies:
     redux "^3.6.0"
 
-"@types/redux@^3.6.31":
+"@types/redux@*", "@types/redux@^3.6.31":
   version "3.6.31"
   resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.31.tgz#40eafa7575db36b912ce0059b85de98c205b0708"
 
@@ -497,6 +503,10 @@ decompress-zip@0.3.0:
     q "^1.1.2"
     readable-stream "^1.1.8"
     touch "0.0.3"
+
+deep-diff@0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.4.tgz#aac5c39952236abe5f037a2349060ba01b00ae48"
 
 deep-equal@^1.0.1:
   version "1.0.1"
@@ -1838,6 +1848,12 @@ redux-form@^6.4.3:
     lodash "^4.17.3"
     lodash-es "^4.17.3"
     shallowequal "^0.2.2"
+
+redux-logger@^2.7.4:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-2.7.4.tgz#891e5d29e7f111d08b5781a237b9965b5858c7f8"
+  dependencies:
+    deep-diff "0.3.4"
 
 redux-thunk@^2.1.0:
   version "2.1.0"
