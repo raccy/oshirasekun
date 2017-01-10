@@ -1,6 +1,6 @@
 import * as R from "ramda";
 import { combineReducers } from "redux";
-import { ENABLE_DEBUG_MODE, configLoad } from "./actions";
+import { ENABLE_DEBUG_MODE, configLoad, loginUser, LOGIN_USER } from "./actions";
 import { handleActions, handleAction } from "redux-actions";
 import { reducer as formReducer } from "redux-form";
 import * as url from "url";
@@ -82,8 +82,13 @@ const config = handleActions<ConfigState, URL | Error>({
     }
 }, initialConfig);
 
+const auth = handleActions({
+    [LOGIN_USER]: (state, action) => state
+}, initialAuth);
+
 export const reducer = combineReducers<AppState>({
     mode,
     config,
+    auth,
     form: formReducer
 });
