@@ -26,7 +26,7 @@ const Footer = ({mainMode, handleAuth}) => {
     ])(mainMode);
     return (
         <main role="main">
-            <div className="container">
+            <div className="container-fluid">
                 {content}
             </div>
         </main>
