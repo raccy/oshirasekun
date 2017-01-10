@@ -3,11 +3,13 @@ const ReduxElectronStore = require("redux-electron-store"); // no typess
 const electronEnhancer = ReduxElectronStore.electronEnhancer;
 import { reducer, initialState, AppState } from "./reducers";
 import thunk from "redux-thunk";
+import * as createLogger from "redux-logger";
 
 // const filter = {
 //     mode: true
 // };
-const middleware: Middleware[] = [thunk];
+const logger = createLogger();
+const middleware: Middleware[] = [thunk, logger];
 
 const enhancer = <any>compose(
     applyMiddleware(...middleware),

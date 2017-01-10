@@ -20,9 +20,6 @@ store.subscribe(() => {
 const opt = optParse();
 
 if (opt.options.debug) {
-    store.subscribe(() => {
-        console.log(store.getState());
-    });
     store.dispatch(enableDebugMode());
 }
 
