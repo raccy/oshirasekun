@@ -4,8 +4,11 @@ export const ENABLE_DEBUG_MODE = "ENABLE_DEBUG_MODE";
 export const enableDebugMode = createAction(ENABLE_DEBUG_MODE);
 
 // UI Actinons
-export const LOGIN_USER = "LOGIN_USER";
-export const loginUser = createAction(LOGIN_USER);
+export const LOGIN = "LOGIN";
+export const login = createAction(LOGIN);
+
+export const LOGIN_COMPLETED = "LOGIN_COMPLETED";
+export const loginCompleted = createAction(LOGIN_COMPLETED);
 
 export const SHUTDOWN = "SHUTDOWN";
 export const shutdown = createAction(SHUTDOWN);

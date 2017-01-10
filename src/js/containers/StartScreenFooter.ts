@@ -31,7 +31,7 @@ const mapStateToProps = (state) => {
                 name: "no-authenticated",
                 text: "未認証",
                 level: "default"
-            }))(state.auth.loggedIn),
+            }))(state.auth.authenticated),
         ]);
 
 

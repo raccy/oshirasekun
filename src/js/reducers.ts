@@ -1,6 +1,6 @@
 import * as R from "ramda";
 import { combineReducers } from "redux";
-import { ENABLE_DEBUG_MODE, configLoad, loginUser, LOGIN_USER } from "./actions";
+import { ENABLE_DEBUG_MODE, CONFIG_LOAD, LOGIN, LOGIN_COMPLETED } from "./actions";
 import { handleActions, handleAction } from "redux-actions";
 import { reducer as formReducer } from "redux-form";
 import * as url from "url";
@@ -31,7 +31,7 @@ type AuthMethod = "ldap" | "ad" | "mount" | "web" | "command" | "dummy" | "none"
 
 interface AuthState {
     required: boolean;
-    loggedIn: boolean;
+    authenticated: boolean;
     username?: string;
     password?: string;
     realm?: string;
@@ -57,7 +57,7 @@ const initialConfig: ConfigState = {
 
 const initialAuth: AuthState = {
     required: true,
-    loggedIn: false,
+    authenticated: false,
     method: "none",
 };
 
@@ -68,11 +68,11 @@ export const initialState: AppState = {
 };
 
 const mode = handleActions({
-    ENABLE_DEBUG_MODE: (state, action) => ({ debug: true })
+    [ENABLE_DEBUG_MODE]: (state, action) => ({ debug: true })
 }, initialMode);
 
-const config = handleActions<ConfigState, URL | Error>({
-    CONFIG_LOAD: {
+const config = handleActions<ConfigState, string | Error>({
+    [CONFIG_LOAD]: {
         next(state, action) {
             return R.merge(state, { loaded: true, path: action.payload });
         },
@@ -82,8 +82,26 @@ const config = handleActions<ConfigState, URL | Error>({
     }
 }, initialConfig);
 
-const auth = handleActions({
-    [LOGIN_USER]: (state, action) => state
+const auth = handleActions<AuthState, any | Error>({
+    [LOGIN]: (state, action) => R.merge(state, {
+        username: action.payload.username,
+        password: action.payload.password
+    }),
+    [LOGIN_COMPLETED]: {
+        next(state, action) {
+            return R.merge(state, {
+                authenticated: true,
+            });
+        },
+        throw(state, action) {
+            // ユーザー名とパスワードは初期化する。
+            return R.merge(state, {
+                username: undefined,
+                password: undefined,
+                error: action.payload
+            });
+        }
+    }
 }, initialAuth);
 
 export const reducer = combineReducers<AppState>({

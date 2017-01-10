@@ -14,7 +14,7 @@ const Footer = ({mainMode, handleAuth}) => {
             </div>
         )],
         [equals("auth"), _s => (<Auth onSubmit={handleAuth} />)],
-        [equals("news"), _s => (<div></div>)],
+        [equals("news"), _s => (<div>ニュース(未完成)</div>)],
         [T, _s => (
             <div className="alert alert-danger" role="alert">
                 <strong>
