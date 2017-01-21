@@ -1,4 +1,4 @@
-import * as jQuery from "jquery";
+import * as jQuery from "jquery/dist/jquery.slim";
 import * as Tether from "tether";
 
 export default function(globalObj: any) {
