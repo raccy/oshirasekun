@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/electron": "1.4.28",
     "@types/handlebars": "^4.0.31",
-    "@types/jquery": "^2.0.34",
+    "@types/jquery": "^2.0.39",
     "@types/js-yaml": "^3.5.29",
     "@types/marked": "^0.0.28",
     "@types/node": "^6.0.51",
