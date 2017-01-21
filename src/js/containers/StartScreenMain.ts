@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
-import { cond, equals, always, T } from "ramda";
+import * as R from "ramda";
 import Main from "../components/Main";
 import { login } from "../actions";
 
 const mapStateToProps = (state) => {
-    const mainMode = cond([
-        [state => !state.config.loaded, always("loading")],
-        [state => state.auth.required && !state.auth.authenticated, always("auth")],
-        [T, always("news")]
+    const mainMode = R.cond([
+        [state => !state.config.loaded, R.always("loading")],
+        [state => state.auth.required && !state.auth.authenticated, R.always("auth")],
+        [R.T, R.always("news")]
     ])(state);
     return {
         mainMode
