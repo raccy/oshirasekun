@@ -6,6 +6,7 @@ import store from "./js/stores";
 import { enableDebugMode } from "./js/actions";
 import Config from "./js/config";
 import MainApp from "./js/main_app";
+import Login from "./js/libs/login";
 
 // エラー発生時に閉じる
 store.subscribe(() => {
@@ -25,5 +26,7 @@ if (opt.options.debug) {
 
 const configFile = path.resolve(opt.options.config || app.getName() + ".yml");
 const config = new Config(configFile, store);
+
+const login = new Login(store);
 
 const mainApp = new MainApp(app, opt, store);

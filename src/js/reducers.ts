@@ -1,6 +1,6 @@
 import * as R from "ramda";
 import { combineReducers } from "redux";
-import { ENABLE_DEBUG_MODE, CONFIG_LOAD, LOGIN, LOGIN_COMPLETED } from "./actions";
+import * as Actions from "./actions";
 import { handleActions, handleAction } from "redux-actions";
 import { reducer as formReducer } from "redux-form";
 import * as url from "url";
@@ -21,17 +21,18 @@ interface ConfigState {
  * - "ldap" LDAP認証
  * - "ad" AD認証
  * - "mount" ファイル共有マウント
- * - "web" Web認証
+ * - "web" Web BASIC認証
  * - "command" 任意のコマンド
  * - "dummy" ダミー、テスト用
  * - "none" 認証無し、ログイン不可
  * - "local" ローカル認証
  */
 type AuthMethod = "ldap" | "ad" | "mount" | "web" | "command" | "dummy" | "none" | "local";
+type AuthenticationStatus = "none" | "prepared" | "during" | "done";
 
 interface AuthState {
     required: boolean;
-    authenticated: boolean;
+    status: AuthenticationStatus;
     username?: string;
     password?: string;
     realm?: string;
@@ -57,7 +58,7 @@ const initialConfig: ConfigState = {
 
 const initialAuth: AuthState = {
     required: true,
-    authenticated: false,
+    status: "none",
     method: "none",
 };
 
@@ -68,11 +69,11 @@ export const initialState: AppState = {
 };
 
 const mode = handleActions({
-    [ENABLE_DEBUG_MODE]: (state, action) => ({ debug: true })
+    [Actions.ENABLE_DEBUG_MODE]: (state, action) => ({ debug: true })
 }, initialMode);
 
 const config = handleActions<ConfigState, string | Error>({
-    [CONFIG_LOAD]: {
+    [Actions.CONFIG_LOAD]: {
         next(state, action) {
             return R.merge(state, { loaded: true, path: action.payload });
         },
@@ -83,14 +84,20 @@ const config = handleActions<ConfigState, string | Error>({
 }, initialConfig);
 
 const auth = handleActions<AuthState, any | Error>({
-    [LOGIN]: (state, action) => R.merge(state, {
+    [Actions.LOGIN]: (state, action) => R.merge(state, {
         username: action.payload.username,
-        password: action.payload.password
+        password: action.payload.password,
+        status: "prepared"
     }),
-    [LOGIN_COMPLETED]: {
+    [Actions.LOGIN_START]: (state, action) => R.merge(state, {
+        status: "during"
+    }),
+    [Actions.LOGIN_DONE]: {
         next(state, action) {
             return R.merge(state, {
-                authenticated: true,
+                username: action.payload.username,
+                password: action.payload.password,
+                status: "done",
             });
         },
         throw(state, action) {
@@ -98,6 +105,7 @@ const auth = handleActions<AuthState, any | Error>({
             return R.merge(state, {
                 username: undefined,
                 password: undefined,
+                status: "none",
                 error: action.payload
             });
         }

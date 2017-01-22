@@ -7,8 +7,11 @@ export const enableDebugMode = createAction(ENABLE_DEBUG_MODE);
 export const LOGIN = "LOGIN";
 export const login = createAction(LOGIN);
 
-export const LOGIN_COMPLETED = "LOGIN_COMPLETED";
-export const loginCompleted = createAction(LOGIN_COMPLETED);
+export const LOGIN_START = "LOGIN_START";
+export const loginStart = createAction(LOGIN_START);
+
+export const LOGIN_DONE = "LOGIN_DONE";
+export const loginDone = createAction(LOGIN_DONE);
 
 export const SHUTDOWN = "SHUTDOWN";
 export const shutdown = createAction(SHUTDOWN);
