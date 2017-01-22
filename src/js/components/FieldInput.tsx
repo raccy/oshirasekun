@@ -7,7 +7,7 @@ const FieldInput = ({name, displayName, type, input, meta: {touched, error, warn
                 {displayName}
             </label>
             <div className="col-6">
-                <input className="form-control" type={type} placeholder={`${displayName} ...`} {...input} />
+                <input className="form-control" type={type} placeholder="入力してください ..." {...input} />
             </div>
         </div>
         <div>
