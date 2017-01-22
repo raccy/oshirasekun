@@ -1,9 +1,9 @@
 import * as R from "ramda";
 import { combineReducers } from "redux";
-import * as Actions from "./actions";
 import { handleActions, handleAction } from "redux-actions";
 import { reducer as formReducer } from "redux-form";
 import * as url from "url";
+import * as Actions from "./actions";
 
 interface ModeState {
     debug: boolean;

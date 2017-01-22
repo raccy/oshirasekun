@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 type BadgeLevel = "default" | "primary" | "success" | "info" | "warning" | "danger";
 
-interface Badge {
+export interface Badge {
     name: string;
     text: string;
     level: BadgeLevel;

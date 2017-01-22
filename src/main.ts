@@ -1,12 +1,11 @@
 import * as path from "path";
 import { app } from "electron";
-
-import optParse from "./js/opt_parse";
+import optParse from "./js/libs/opt_parse";
+import Config from "./js/libs/config";
+import Login from "./js/libs/login";
 import store from "./js/stores";
 import { enableDebugMode } from "./js/actions";
-import Config from "./js/config";
 import MainApp from "./js/main_app";
-import Login from "./js/libs/login";
 
 // エラー発生時に閉じる
 store.subscribe(() => {

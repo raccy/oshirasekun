@@ -1,9 +1,8 @@
+import * as R from "ramda";
 import * as React from "react";
 import Auth from "./Auth";
-import * as R from "ramda";
 
 const Footer = ({mainMode, inputtable, handleAuth}) => {
-    console.log(mainMode);
     const content = R.cond([
         [R.equals("loading"), _s => (
             <div className="alert alert-info" role="alert">

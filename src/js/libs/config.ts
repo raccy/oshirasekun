@@ -1,11 +1,11 @@
+import { readFile } from "fs";
+import { normalize } from "path";
+import * as url from "url";
 import * as R from "ramda";
 import { safeLoad } from "js-yaml";
-import { readFile } from "fs";
 import { Store } from "redux";
-import { AppState } from "./reducers";
-import { configLoad, authSetup } from "./actions";
-import * as url from "url";
-import { normalize } from "path";
+import { AppState } from "../reducers";
+import { configLoad, authSetup } from "../actions";
 
 /**
  * コンフィグクラス

@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
 import * as R from "ramda";
+import { connect } from "react-redux";
 import Main from "../components/Main";
 import { login } from "../actions";
 

@@ -1,14 +1,13 @@
-// Load Bootstrap JavaScript module
-import bootstrapLoad from "./bootstrap_load";
-bootstrapLoad(window);
-
 import * as React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 
+import store from "./stores";
 import StartScreen from "./components/StartScreen";
 
-import store from "./stores";
+// Load Bootstrap JavaScript module
+import bootstrapLoad from "./libs/bootstrap_load";
+bootstrapLoad(window);
 
 const mainContent = document.getElementById("main");
 render(
