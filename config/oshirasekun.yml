@@ -7,7 +7,7 @@ control:
 admin:
   password: admin
 startScreen:
-  login:
+  auth:
     require: true
     # ldap, ad, mount, web, command, dummy
     # ldap, ad … LDAPまたはADの認証を行う。
