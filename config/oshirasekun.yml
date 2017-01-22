@@ -23,7 +23,7 @@ start_screen:
     option:
       drive: Z
       domain: localnet
-　news:
+  news:
     show: true
     # plain, markdown, gfm, [asciidoc, review, textile, html]
     type: markdown
