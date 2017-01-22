@@ -28,7 +28,7 @@ interface ConfigState {
  * - "local" ローカル認証
  */
 type AuthMethod = "ldap" | "ad" | "mount" | "web" | "command" | "dummy" | "none" | "local";
-type AuthenticationStatus = "none" | "prepared" | "during" | "done";
+type AuthenticationStatus = "none" | "prepared" | "during" | "done" | "failed";
 
 interface AuthState {
     required: boolean;
@@ -84,6 +84,13 @@ const config = handleActions<ConfigState, string | Error>({
 }, initialConfig);
 
 const auth = handleActions<AuthState, any | Error>({
+    [Actions.AUTH_SETUP]: (state, action) => R.merge(state, {
+        required: action.payload.required,
+        realm: action.payload.realm,
+        method: action.payload.method,
+        path: action.payload.path,
+        option: action.payload.option
+    }),
     [Actions.LOGIN]: (state, action) => R.merge(state, {
         username: action.payload.username,
         password: action.payload.password,
@@ -105,7 +112,7 @@ const auth = handleActions<AuthState, any | Error>({
             return R.merge(state, {
                 username: undefined,
                 password: undefined,
-                status: "none",
+                status: "failed",
                 error: action.payload
             });
         }

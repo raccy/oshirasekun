@@ -1,8 +1,9 @@
+import * as R from "ramda";
 import { safeLoad } from "js-yaml";
 import { readFile } from "fs";
 import { Store } from "redux";
 import { AppState } from "./reducers";
-import { configLoad } from "./actions";
+import { configLoad, authSetup } from "./actions";
 import * as url from "url";
 import { normalize } from "path";
 
@@ -25,7 +26,6 @@ export default class Config {
                 this.store.dispatch(configLoad(err));
                 return;
             }
-
             try {
                 this.loadData(safeLoad(data));
             } catch (e) {
@@ -33,8 +33,9 @@ export default class Config {
             }
         });
     }
+
     loadData(config) {
+        this.store.dispatch(authSetup(config.startScreen.auth));
         this.store.dispatch(configLoad(this.path));
     }
-
 }

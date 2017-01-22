@@ -3,7 +3,7 @@ import Header from "../components/Header";
 
 const mapStateToProps = (state) => {
     return {
-        title: "認証"
+        title: "お知らせ君"
     };
 };
 const mapDispachToProps = (dispach) => {

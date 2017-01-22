@@ -6,7 +6,7 @@ import { login } from "../actions";
 const mapStateToProps = (state) => {
     const mainMode = R.cond([
         [state => !state.config.loaded, R.always("loading")],
-        [state => state.auth.required && !state.auth.authenticated, R.always("auth")],
+        [state => state.auth.required && state.auth.status !== "done", R.always("auth")],
         [R.T, R.always("news")]
     ])(state);
     return {

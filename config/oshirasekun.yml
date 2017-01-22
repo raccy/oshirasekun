@@ -8,7 +8,7 @@ admin:
   password: admin
 startScreen:
   auth:
-    require: true
+    required: true
     # ldap, ad, mount, web, command, dummy
     # ldap, ad … LDAPまたはADの認証を行う。
     # mount … pathにマウントまたは接続を行う。
