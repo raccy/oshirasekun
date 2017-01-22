@@ -23,26 +23,29 @@ const mapStateToProps = (state) => {
                 text: "通常",
                 level: "default"
             }))(state.mode.debug),
-            R.ifElse(R.identity, R.always({
-                name: "authenticated",
-                text: "認証済み",
-                level: "success"
-            }), R.always({
-                name: "no-authenticated",
-                text: "未認証",
-                level: "default"
-            }))(state.auth.authenticated),
+            R.cond([
+                [R.equals("none"), R.always({
+                    name: "unauthenticated",
+                    text: "未認証",
+                    level: "default"
+                })],
+                [R.equals("preserved"), R.always({
+                    name: "repared-authenticating",
+                    text: "認証前",
+                    level: "default"
+                })],
+                [R.equals("during"), R.always({
+                    name: "during-authentication",
+                    text: "認証中",
+                    level: "default"
+                })],
+                [R.equals("done"), R.always({
+                    name: "authenticated",
+                    text: "認証済み",
+                    level: "success"
+                })],
+            ])(state.auth.status),
         ]);
-
-
-    // const modeList: Tag[] = [];
-    // if (state.mode.debug) {
-    //     modeList.push({
-    //         name: "debug",
-    //         text: "デバッグ",
-    //         level: "danger"
-    //     });
-    // }
     return {
         badgeList
     };

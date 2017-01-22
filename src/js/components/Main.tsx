@@ -2,7 +2,7 @@ import * as React from "react";
 import Auth from "./Auth";
 import * as R from "ramda";
 
-const Footer = ({mainMode, handleAuth}) => {
+const Footer = ({mainMode, inputtable, handleAuth}) => {
     console.log(mainMode);
     const content = R.cond([
         [R.equals("loading"), _s => (
@@ -13,7 +13,7 @@ const Footer = ({mainMode, handleAuth}) => {
                 準備中です。しばらくお待ちください。
             </div>
         )],
-        [R.equals("auth"), _s => (<Auth onSubmit={handleAuth} />)],
+        [R.equals("auth"), _s => (<Auth inputtable={inputtable} onSubmit={handleAuth} />)],
         [R.equals("news"), _s => (<div>ニュース(未完成)</div>)],
         [R.T, _s => (
             <div className="alert alert-danger" role="alert">

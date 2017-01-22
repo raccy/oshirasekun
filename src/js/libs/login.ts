@@ -15,12 +15,15 @@ export default class Login {
     start(auth) {
         this.store.dispatch(loginStart());
         const promise = R.cond([
-            [R.propEq("method", "dummy"), ({ username, password }) => new Promise((resolve, reject) => {
-                if (username != null && username === password) {
-                    resolve({ username, password });
-                } else {
-                    reject(new Error("ユーザー名またはパスワードが違います。"));
-                }
+            [R.propEq("method", "dummy"), ({ username, password, option }) => new Promise((resolve, reject) => {
+                const sleep = option.sleep ? option.sleep : 0;
+                setTimeout(() => {
+                    if (username != null && username === password) {
+                        resolve({ username, password });
+                    } else {
+                        reject(new Error("ユーザー名またはパスワードが違います。"));
+                    }
+                }, sleep);
             })],
             [R.T, _s => Promise.reject(new Error("実装されていないメソッドです。"))]
         ])(auth)

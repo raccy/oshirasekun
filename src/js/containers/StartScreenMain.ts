@@ -9,8 +9,14 @@ const mapStateToProps = (state) => {
         [state => state.auth.required && state.auth.status !== "done", R.always("auth")],
         [R.T, R.always("news")]
     ])(state);
+    const inputtable = R.cond([
+        [state => !state.config.loaded, R.always(false)],
+        [state => state.auth.status === "prepared" || state.auth.status === "during", R.always(false)],
+        [R.T, R.always(true)]
+    ])(state);
     return {
-        mainMode
+        mainMode,
+        inputtable
     };
 };
 const mapDispachToProps = (dispach) => {
