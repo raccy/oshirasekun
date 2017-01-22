@@ -6,7 +6,7 @@ control:
   fallback: local
 admin:
   password: admin
-start_screen:
+startScreen:
   login:
     require: true
     # ldap, ad, mount, web, command, dummy
@@ -19,7 +19,7 @@ start_screen:
     # Handlebarsを使用する。エスケープ処理は行わない。
     path: //fs.example.jp/{{username}}$
     # 将来的には何をエスケープするのかマップで指定したいけど、まだできない。
-    escape_map: {}
+    escapeMap: {}
     option:
       drive: Z
       domain: localnet
