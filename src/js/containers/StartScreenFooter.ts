@@ -1,18 +1,10 @@
 import * as R from "ramda";
 import { connect } from "react-redux";
 import Footer from "../components/Footer";
-
-type BadgeLevel = "default" | "primary" | "success" | "info" | "warning" | "danger";
-
-export interface Badge {
-    name: string;
-    text: string;
-    level: BadgeLevel;
-}
+import { BadgeProps } from "../components/Badge";
 
 const mapStateToProps = (state) => {
-
-    const badgeList: Badge[] = R.filter<Badge>(R.identity,
+    const badgeList: (BadgeProps)[] = R.filter<BadgeProps>(R.identity,
         [
             R.ifElse(R.identity, R.always({
                 name: "debug",
@@ -24,7 +16,7 @@ const mapStateToProps = (state) => {
                 level: "default"
             }))(state.mode.debug),
             R.cond([
-                [R.equals("none"), R.always({
+                [R.either(R.equals("none"), R.equals("failed")), R.always({
                     name: "unauthenticated",
                     text: "未認証",
                     level: "default"

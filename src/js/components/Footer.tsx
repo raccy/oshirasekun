@@ -1,11 +1,9 @@
 import * as R from "ramda";
 import * as React from "react";
-import { Badge } from "../containers/StartScreenFooter";
+import Badge, { BadgeProps } from "./Badge";
 
-const badgeContents = R.map<Badge, JSX.Element>((badge) => (
-    <span className={`badge badge-${badge.level} ml-1`} key={badge.name}>
-        {badge.text}
-    </span>
+const badgeContents = R.map<BadgeProps, JSX.Element>((props) => (
+    <Badge {...props} />
 ));
 
 
