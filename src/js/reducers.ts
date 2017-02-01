@@ -138,7 +138,7 @@ const news = handleActions<NewsState, any | Error>({
     [Actions.NEWS_SETUP]: (state, action) => R.merge(state, action.payload),
     [Actions.NEWS_LOAD]: {
         next(state, action) {
-            return R.mergeAll([state, action.payload, {loaded: true}]);
+            return R.mergeAll<NewsState>([state, action.payload, { loaded: true }]);
         },
         throw(state, action) {
             return R.merge(state, { error: action.payload });
