@@ -20,3 +20,9 @@ export const loginStart = createAction(LOGIN_START);
 
 export const LOGIN_DONE = "LOGIN_DONE";
 export const loginDone = createAction(LOGIN_DONE);
+
+export const NEWS_SETUP = "NEWS_SETUP";
+export const newsSetup = createAction(NEWS_SETUP);
+
+export const NEWS_LOAD = "NEWS_LOAD";
+export const newsLoad = createAction(NEWS_LOAD);

@@ -2,7 +2,6 @@ import * as R from "ramda";
 import { combineReducers } from "redux";
 import { handleActions, handleAction } from "redux-actions";
 import { reducer as formReducer } from "redux-form";
-import * as url from "url";
 import * as Actions from "./actions";
 
 interface ModeState {
@@ -38,8 +37,20 @@ interface AuthState {
     displayName?: string;
     realm?: string;
     method: AuthMethod;
-    path?: url.Url | string;
+    path?: string | URL;
     option?: any;
+    error?: Error;
+}
+
+type NewsType = "plain" | "text" | "markdown" | "gfm" | "asciidoc" | "review" | "textile" | "html";
+interface NewsState {
+    show: boolean;
+    loaded: boolean;
+    type: NewsType;
+    encode: string;
+    raw?: string;
+    html?: string;
+    path?: string | URL;
     error?: Error;
 }
 
@@ -47,6 +58,7 @@ export interface AppState {
     mode: ModeState;
     config: ConfigState;
     auth: AuthState;
+    news: NewsState;
 }
 
 const initialMode: ModeState = {
@@ -60,13 +72,21 @@ const initialConfig: ConfigState = {
 const initialAuth: AuthState = {
     required: true,
     status: "none",
-    method: "none",
+    method: "none"
+};
+
+const initialNews: NewsState = {
+    show: true,
+    loaded: false,
+    type: "plain",
+    encode: "UTF-8"
 };
 
 export const initialState: AppState = {
     mode: initialMode,
     config: initialConfig,
-    auth: initialAuth
+    auth: initialAuth,
+    news: initialNews
 };
 
 const mode = handleActions({
@@ -85,18 +105,10 @@ const config = handleActions<ConfigState, string | Error>({
 }, initialConfig);
 
 const auth = handleActions<AuthState, any | Error>({
-    [Actions.AUTH_SETUP]: (state, action) => R.merge(state, {
-        required: action.payload.required,
-        realm: action.payload.realm,
-        method: action.payload.method,
-        path: action.payload.path,
-        option: action.payload.option
-    }),
-    [Actions.LOGIN]: (state, action) => R.merge(state, {
-        username: action.payload.username,
-        password: action.payload.password,
+    [Actions.AUTH_SETUP]: (state, action) => R.merge(state, action.payload),
+    [Actions.LOGIN]: (state, action) => R.mergeAll([state, action.payload, {
         status: "prepared"
-    }),
+    }]),
     [Actions.LOGIN_START]: (state, action) => R.merge(state, {
         status: "during"
     }),
@@ -121,6 +133,18 @@ const auth = handleActions<AuthState, any | Error>({
         }
     }
 }, initialAuth);
+
+const news = handleActions<NewsState, any | Error>({
+    [Actions.NEWS_SETUP]: (state, action) => R.merge(state, action.payload),
+    [Actions.NEWS_LOAD]: {
+        next(state, action) {
+            return R.merge(state, action.payload);
+        },
+        throw(state, action) {
+            return R.merge(state, { error: action.payload });
+        }
+    }
+}, initialNews);
 
 export const reducer = combineReducers<AppState>({
     mode,
