@@ -35,6 +35,7 @@ interface AuthState {
     status: AuthenticationStatus;
     username?: string;
     password?: string;
+    displayName?: string;
     realm?: string;
     method: AuthMethod;
     path?: url.Url | string;
@@ -101,14 +102,16 @@ const auth = handleActions<AuthState, any | Error>({
     }),
     [Actions.LOGIN_DONE]: {
         next(state, action) {
+            // パスワードだけクリア
             return R.merge(state, {
-                username: action.payload.username,
-                password: action.payload.password,
+                password: undefined,
+                displayName: action.payload.displayName,
                 status: "done",
+                error: undefined
             });
         },
         throw(state, action) {
-            // ユーザー名とパスワードは初期化する。
+            // ユーザー名とパスワードはクリア
             return R.merge(state, {
                 username: undefined,
                 password: undefined,
