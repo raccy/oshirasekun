@@ -18,7 +18,7 @@ export default class MainApp {
     }
 
     onReady() {
-        let startScreemWindow: Electron.BrowserWindowOptions = {
+        let startScreemWindow: Electron.BrowserWindowConstructorOptions = {
             width: 1024,
             height: 768,
             minWidth: 1024, // must be larger than XGA width

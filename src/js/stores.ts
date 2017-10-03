@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose, Middleware, Store } from "redux";
 import thunk from "redux-thunk";
-import * as createLogger from "redux-logger";
+import { createLogger } from "redux-logger";
 const electronEnhancer = require("redux-electron-store").electronEnhancer; // no typess
 import { reducer, initialState, AppState } from "./reducers";
 

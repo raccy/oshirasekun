@@ -2,14 +2,16 @@ import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 import FieldInput from "./FieldInput";
 
+const Field2 = Field as any;
+
 const Auth = ({inputtable, handleSubmit}) => (
     <div className="auth">
         <div className="information">
         </div>
         <form onSubmit={handleSubmit}>
             <fieldset disabled={!inputtable}>
-                <Field name="username" displayName="ユーザー名" type="text" component={FieldInput} />
-                <Field name="password" displayName="パスワード" type="password" component={FieldInput} />
+                <Field2 name="username" displayName="ユーザー名" type="text" component={FieldInput} />
+                <Field2 name="password" displayName="パスワード" type="password" component={FieldInput} />
                 <div className="row">
                     <div className="offset-2 col-8 text-right">
                         <button className="btn btn-primary ml-1" type="submit">
@@ -28,4 +30,4 @@ const Auth = ({inputtable, handleSubmit}) => (
 
 export default reduxForm({
     form: "auth"
-})(Auth as any);
+})(Auth as any) as any;

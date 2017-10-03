@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { BadgeProps } from "../components/Badge";
 
 const mapStateToProps = (state) => {
-    const badgeList: (BadgeProps)[] = R.filter<BadgeProps>(R.identity,
+    const badgeList: (BadgeProps)[] = R.filter<BadgeProps>(<any>R.identity,
         [
             R.ifElse(R.identity, R.always({
                 name: "debug",
