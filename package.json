@@ -4,6 +4,7 @@
   "description": "Message and Login Form for Client",
   "main": "dst/main.js",
   "scripts": {
+    "buildcoffee": "coffee -b -c -t -o dst/ src/",
     "buildtsc": "tsc",
     "buildpug": "pug -o dst/ src/",
     "buildsass": "node-sass --include-path node_modules/bootstrap/scss --include-path node_modules/font-awesome/scss -o dst/ -r src/",
@@ -37,6 +38,10 @@
     "@types/redux-logger": "^3.0.4",
     "@types/redux-thunk": "^2.1.0",
     "@types/tether": "^1.1.27",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "coffeescript": "^2.0.1",
     "copyfiles": "^1.2.0",
     "electron": "^1.7.8",
     "electron-packager": "^9.1.0",
