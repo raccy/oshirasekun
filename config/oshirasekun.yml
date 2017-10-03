@@ -21,7 +21,7 @@ startScreen:
     # 将来的には何をエスケープするのかマップで指定したいけど、まだできない。
     escapeMap: {}
     option:
-      sleep: 10000
+      sleep: 10
       drive: Z
       domain: localnet
   news:
