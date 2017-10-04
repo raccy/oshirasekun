@@ -21,7 +21,7 @@ meta: { touched, error, warning }}) ->
     </div>
     <div>
       {message}
-      &nbsp
+      &nbsp;
     </div>
   </div>
 
