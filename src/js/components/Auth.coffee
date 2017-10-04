@@ -28,4 +28,4 @@ Auth = ({inputtable, handleSubmit}) ->
 
 export default reduxForm({
   form: "auth"
-})(Auth as any) as any
+})(Auth)
