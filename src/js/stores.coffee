@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware, compose } from "redux"
-import thunk from "redux-thunk"
-import { createLogger } from "redux-logger"
-import { electronEnhancer } from "redux-electron-store"
-import { reducer, initialState } from "./reducers"
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
+import {createLogger} from 'redux-logger'
+import {electronEnhancer} from 'redux-electron-store'
+import {reducer, initialState} from './reducers'
 
 logger = createLogger()
 middleware = [thunk, logger]
@@ -10,7 +10,7 @@ middleware = [thunk, logger]
 enhancer = compose(
   applyMiddleware(middleware...),
   electronEnhancer({
-    dispatchProxy: (a) -> store.dispatch(a),
+    dispatchProxy: (a) -> store.dispatch(a)
   })
 )
 
