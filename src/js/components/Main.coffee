@@ -1,10 +1,10 @@
-import R from "ramda"
-import React from "react"
-import Auth from "./Auth"
+import R from 'ramda'
+import React from 'react'
+import Auth from './Auth'
 
 Footer = ({mainMode, inputtable, handleAuth}) ->
   content = R.cond([
-    [R.equals("loading"), (_s) -> (
+    [R.equals('loading'), (_s) -> (
       <div className="alert alert-info" role="alert">
         <strong>
           <i className="fa fa-spinner fa-pulse fa-fw"></i>
@@ -13,11 +13,11 @@ Footer = ({mainMode, inputtable, handleAuth}) ->
       </div>
     )],
     [
-      R.equals("auth"),
+      R.equals('auth'),
       (_s) -> (<Auth inputtable={inputtable} onSubmit={handleAuth} />)
     ],
     [
-      R.equals("news"),
+      R.equals('news'),
       (_s) -> (<div>ニュース(未完成)</div>)
     ],
     [R.T, (_s) -> (

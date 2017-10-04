@@ -1,6 +1,6 @@
-import R from "ramda"
-import React from "react"
-import Badge, { BadgeProps } from "./Badge"
+import R from 'ramda'
+import React from 'react'
+import Badge, {BadgeProps} from './Badge'
 
 badgeContents = R.map((props) -> (
   <Badge {...props} />

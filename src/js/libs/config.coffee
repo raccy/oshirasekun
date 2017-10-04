@@ -1,11 +1,11 @@
-import { readFile } from "fs"
-import { normalize } from "path"
-import url from "url"
-import R from "ramda"
-import { safeLoad } from "js-yaml"
-import { Store } from "redux"
-import { AppState } from "../reducers"
-import { configLoad, authSetup } from "../actions"
+import {readFile} from 'fs'
+import {normalize} from 'path'
+import url from 'url'
+import R from 'ramda'
+import {safeLoad} from 'js-yaml'
+import {Store} from 'redux'
+import {AppState} from '../reducers'
+import {configLoad, authSetup} from '../actions'
 
 ###
 コンフィグクラス
@@ -20,7 +20,7 @@ export default class Config
     @loadFile(@filePath)
 
   loadFile: (filePath) ->
-    readFile(filePath, "utf8", (err, data) =>
+    readFile(filePath, 'utf8', (err, data) =>
       if err
         @store.dispatch(configLoad(err))
         return

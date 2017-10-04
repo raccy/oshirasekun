@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
 FieldInput = ({name, displayName, type, input,
-meta: { touched, error, warning }}) ->
+meta: {touched, error, warning}}) ->
   message = if touched
     if error
       <span className="text-danger">{error}</span>

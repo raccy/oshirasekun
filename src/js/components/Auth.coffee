@@ -1,6 +1,6 @@
-import React from "react"
-import { Field, reduxForm } from "redux-form"
-import FieldInput from "./FieldInput"
+import React from 'react'
+import {Field, reduxForm} from 'redux-form'
+import FieldInput from './FieldInput'
 
 Auth = ({inputtable, handleSubmit}) ->
   <div className="auth">
@@ -27,5 +27,5 @@ Auth = ({inputtable, handleSubmit}) ->
   </div>
 
 export default reduxForm({
-  form: "auth"
+  form: 'auth'
 })(Auth)

@@ -1,8 +1,8 @@
-import { connect } from "react-redux"
-import Header from "../components/Header"
+import {connect} from 'react-redux'
+import Header from '../components/Header'
 
 mapStateToProps = (state) ->
-  title: "お知らせ君"
+  title: 'お知らせ君'
 
 mapDispachToProps = (dispach) -> {}
 

@@ -1,19 +1,19 @@
-import R from "ramda"
-import { connect } from "react-redux"
-import Main from "../components/Main"
-import { login } from "../actions"
+import R from 'ramda'
+import {connect} from 'react-redux'
+import Main from '../components/Main'
+import {login} from '../actions'
 
 mapStateToProps = (state) ->
   mainMode = R.cond([
     [
       (state) -> not state.config.loaded,
-      R.always("loading")
+      R.always('loading')
     ],
     [
-      (state) -> state.auth.required and state.auth.status != "done",
-      R.always("auth")
+      (state) -> state.auth.required and state.auth.status isnt 'done',
+      R.always('auth')
     ],
-    [R.T, R.always("news")]
+    [R.T, R.always('news')]
   ])(state)
   inputtable = R.cond([
     [
@@ -21,8 +21,8 @@ mapStateToProps = (state) ->
       R.always(false)
     ],
     [
-      (state) -> state.auth.status == "prepared" ||
-        state.auth.status == "during",
+      (state) -> state.auth.status is 'prepared' or
+        state.auth.status is 'during',
       R.always(false)
     ],
     [R.T, R.always(true)]
