@@ -12,6 +12,6 @@ mainContent = document.getElementById('main')
 render(
   <Provider store={store}>
     <StartScreen />
-  </Provider>,
+  </Provider>
   mainContent
 )

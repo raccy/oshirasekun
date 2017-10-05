@@ -33,11 +33,9 @@ mapStateToProps = (state) ->
   }
 
 mapDispachToProps = (dispach) ->
-  return {
-    handleAuth: (values) ->
-      console.log(values)
-      dispach(login(values))
-  }
+  handleAuth: (values) ->
+    console.log(values)
+    dispach(login(values))
 
 
 StartStreenMain = connect(

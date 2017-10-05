@@ -8,10 +8,8 @@ logger = createLogger()
 middleware = [thunk, logger]
 
 enhancer = compose(
-  applyMiddleware(middleware...),
-  electronEnhancer({
-    dispatchProxy: (a) -> store.dispatch(a)
-  })
+  applyMiddleware(middleware...)
+  electronEnhancer(dispatchProxy: (a) -> store.dispatch(a))
 )
 
 store = createStore(reducer, initialState, enhancer)

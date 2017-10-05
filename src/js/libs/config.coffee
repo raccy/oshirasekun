@@ -20,7 +20,7 @@ export default class Config
     @loadFile(@filePath)
 
   loadFile: (filePath) ->
-    readFile(filePath, 'utf8', (err, data) =>
+    readFile filePath, 'utf8', (err, data) =>
       if err
         @store.dispatch(configLoad(err))
         return
@@ -28,7 +28,6 @@ export default class Config
         @loadData(safeLoad(data))
       catch e
         @store.dispatch(configLoad(e))
-    )
 
   loadData: (config) ->
     @store.dispatch(authSetup(config.startScreen.auth))

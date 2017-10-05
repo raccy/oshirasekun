@@ -89,15 +89,14 @@ auth = handleActions
       )
 , initialAuth
 
-news = handleActions({
+news = handleActions
   "#{Actions.NEWS_SETUP}": (state, action) -> R.merge(state, action.payload)
-  "#{Actions.NEWS_LOAD}": {
+  "#{Actions.NEWS_LOAD}":
     next: (state, action) ->
       R.mergeAll([state, action.payload, {loaded: true}])
     throw: (state, action) ->
       R.merge(state, {error: action.payload})
-  }
-}, initialNews)
+, initialNews
 
 export reducer = combineReducers({
   mode,

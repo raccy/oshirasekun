@@ -16,7 +16,7 @@ meta: {touched, error, warning}}) ->
       </label>
       <div className="col-6">
         <input className="form-control" type={type}
-            placeholder="入力してください ..." {input...} />
+          placeholder="入力してください ..." {input...} />
       </div>
     </div>
     <div>

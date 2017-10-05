@@ -9,11 +9,11 @@ options = [
   ['v', 'version', 'show version']
 ]
 helpTemplate = """
-#{package_info}
-Usage: oshirasekun [options]
+               #{package_info}
+               Usage: oshirasekun [options]
 
-[[OPTIONS]]
-"""
+               [[OPTIONS]]
+               """
 appExit = (exitCode = 0) -> app.exit(exitCode)
 displayVersionAndQuit = ->
   console.info(package_info)

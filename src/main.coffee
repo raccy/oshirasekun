@@ -9,16 +9,17 @@ import MainApp from './js/main_app'
 
 # エラー発生時に閉じる
 store.subscribe ->
-  state = store.getState()
-  error = state.config.error
-  if error
+  error = store.getState().config.error
+  if error?
     console.error("#{error.name}:  #{error.message}")
     app.exit(1)
 
+# コマンドラインオプション解析
 opt = optParse()
 if opt.options.debug
   store.dispatch(enableDebugMode())
 
+# メイン起動
 configFile = path.resolve(opt.options.config or app.getName() + '.yml')
 config = new Config(configFile, store)
 login = new Login(store)

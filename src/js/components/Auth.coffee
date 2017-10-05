@@ -9,9 +9,9 @@ Auth = ({inputtable, handleSubmit}) ->
     <form onSubmit={handleSubmit}>
       <fieldset disabled={not inputtable}>
         <Field name="username" displayName="ユーザー名"
-            type="text" component={FieldInput} />
+          type="text" component={FieldInput} />
         <Field name="password" displayName="パスワード"
-            type="password" component={FieldInput} />
+          type="password" component={FieldInput} />
         <div className="row">
           <div className="offset-2 col-8 text-right">
             <button className="btn btn-primary ml-1" type="submit">
