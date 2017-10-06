@@ -1,7 +1,6 @@
 import {readFile} from 'fs'
 import {normalize} from 'path'
 import {safeLoad} from 'js-yaml'
-import {AppState} from '../reducers'
 import {configLoad, authSetup} from '../actions'
 
 # コンフィグクラス
