@@ -102,5 +102,6 @@ export reducer = combineReducers({
   mode,
   config,
   auth,
+  news,
   form: formReducer
 })
