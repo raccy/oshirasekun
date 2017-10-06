@@ -1,11 +1,11 @@
 import path from 'path'
 import {app} from 'electron'
-import optParse from './js/libs/opt_parse'
-import Config from './js/libs/config'
-import Login from './js/libs/login'
+import optParse from './js/libs/optParse'
+import Config from './js/libs/Config'
+import Login from './js/libs/Login'
 import store from './js/stores'
 import {enableDebugMode} from './js/actions'
-import MainApp from './js/main_app'
+import MainApp from './js/MainApp'
 
 # エラー発生時に閉じる
 store.subscribe ->

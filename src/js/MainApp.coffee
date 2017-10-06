@@ -2,7 +2,7 @@ import electron from 'electron'
 import R from 'ramda'
 import Redux from 'redux'
 import {AppState} from './reducers'
-import {Options} from './libs/opt_parse'
+import {Options} from './libs/optParse'
 
 export default class MainApp
   constructor: (@app, @opt, @store) ->
