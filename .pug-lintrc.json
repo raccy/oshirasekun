@@ -7,7 +7,7 @@
   "disallowLegacyMixinCall": true,
   "disallowMultipleLineBreaks": true,
   "disallowSpacesInsideAttributeBrackets": true,
-  "maximumNumberOfLines": 120,
+  "maximumNumberOfLines": 80,
   "requireClassLiteralsBeforeAttributes": true,
   "requireIdLiteralsBeforeAttributes": true,
   "requireLineFeedAtFileEnd": true,
