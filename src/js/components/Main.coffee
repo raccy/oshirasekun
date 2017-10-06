@@ -1,8 +1,7 @@
-import R from 'ramda'
 import React from 'react'
 import Auth from './Auth'
 
-Main = ({mainMode, inputtable, handleAuth}) ->
+Main = ({mainMode, inputtable, initialValuse, handleAuth}) ->
   content = switch mainMode
     when 'loading'
       <div className="alert alert-info" role="alert">
@@ -12,7 +11,8 @@ Main = ({mainMode, inputtable, handleAuth}) ->
         準備中です。しばらくお待ちください。
       </div>
     when 'auth'
-      <Auth inputtable={inputtable} onSubmit={handleAuth} />
+      <Auth inputtable={inputtable} initialValuse={initialValuse}
+        onSubmit={handleAuth} />
     when 'news'
       <div>ニュース(未完成)</div>
     else

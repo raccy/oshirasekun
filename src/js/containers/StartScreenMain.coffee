@@ -14,8 +14,9 @@ mapStateToProps = (state) ->
   inputtable = state.config.loaded and
     not ['prepared', 'during'].includes(state.auth.status)
   {
-    mainMode,
+    mainMode
     inputtable
+    initialValuse: state.auth
   }
 
 mapDispachToProps = (dispach) ->
