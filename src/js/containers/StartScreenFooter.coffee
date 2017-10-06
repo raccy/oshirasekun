@@ -1,6 +1,5 @@
 import {connect} from 'react-redux'
 import Footer from '../components/Footer'
-import {BadgeProps} from '../components/Badge'
 
 mapStateToProps = (state) ->
   modeBadge = if state.mode.debug

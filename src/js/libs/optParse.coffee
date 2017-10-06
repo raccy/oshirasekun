@@ -14,7 +14,9 @@ helpTemplate = """
 
                [[OPTIONS]]
                """
+
 appExit = (exitCode = 0) -> app.exit(exitCode)
+
 displayVersionAndQuit = ->
   console.info(package_info)
   appExit()

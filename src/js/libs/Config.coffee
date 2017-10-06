@@ -1,16 +1,11 @@
 import {readFile} from 'fs'
 import {normalize} from 'path'
-import url from 'url'
-import R from 'ramda'
 import {safeLoad} from 'js-yaml'
-import {Store} from 'redux'
 import {AppState} from '../reducers'
 import {configLoad, authSetup} from '../actions'
 
-###
-コンフィグクラス
-設定ファイルはYAML形式
-###
+# コンフィグクラス
+# 設定ファイルはYAML形式
 export default class Config
   constructor: (filePath, @store) ->
     @done = false

@@ -67,35 +67,36 @@ auth = handleActions
   "#{Actions.AUTH_SETUP}": (state, action) ->
     R.merge state, action.payload
   "#{Actions.LOGIN}": (state, action) ->
-    R.mergeAll([state, action.payload, {status: 'prepared'}])
+    R.mergeAll([state, action.payload, status: 'prepared'])
   "#{Actions.LOGIN_START}": (state, action) ->
     R.merge(state, {status: 'during'})
   "#{Actions.LOGIN_DONE}":
     next: (state, action) ->
       # パスワードだけクリア
       R.merge(state,
-        password: undefined,
-        displayName: action.payload.displayName,
-        status: 'done',
+        password: undefined
+        displayName: action.payload.displayName
+        status: 'done'
         error: undefined
       )
     throw: (state, action) ->
       # ユーザー名とパスワードはクリア
       R.merge(state,
-        username: undefined,
-        password: undefined,
-        status: 'failed',
+        username: undefined
+        password: undefined
+        status: 'failed'
         error: action.payload
       )
 , initialAuth
 
 news = handleActions
-  "#{Actions.NEWS_SETUP}": (state, action) -> R.merge(state, action.payload)
+  "#{Actions.NEWS_SETUP}": (state, action) ->
+    R.merge(state, action.payload)
   "#{Actions.NEWS_LOAD}":
     next: (state, action) ->
-      R.mergeAll([state, action.payload, {loaded: true}])
+      R.mergeAll([state, action.payload, loaded: true])
     throw: (state, action) ->
-      R.merge(state, {error: action.payload})
+      R.merge(state, error: action.payload)
 , initialNews
 
 export reducer = combineReducers({
