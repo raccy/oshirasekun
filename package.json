@@ -4,7 +4,7 @@
   "description": "Message and Login Form for Client",
   "main": "dst/main.js",
   "scripts": {
-    "buildcoffee": "coffee -b -c -t -m -o dst/ src/",
+    "buildcoffee": "coffee -b -c -t -o dst/ src/",
     "buildpug": "pug -o dst/ src/",
     "buildsass": "node-sass --include-path node_modules/bootstrap/scss --include-path node_modules/font-awesome/scss -o dst/ -r src/",
     "buildfont": "copyup -f node_modules/font-awesome/fonts/* dst/fonts",
