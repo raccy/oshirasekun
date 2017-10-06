@@ -10,5 +10,4 @@ StartScreen = ->
     <StartScreenFooter />
   </div>
 
-
 export default StartScreen

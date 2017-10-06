@@ -2,13 +2,6 @@ import React from 'react'
 
 FieldInput = ({name, displayName, type, input,
 meta: {touched, error, warning}}) ->
-  message = if touched
-    if error
-      <span className="text-danger">{error}</span>
-    else if warning
-      <span className="text-warning">{warning}</span>
-    else
-      <span></span>
   <div className="form-group">
     <div className="row">
       <label className="offset-2 col-2 col-form-label" htmlFor={name}>
@@ -20,7 +13,14 @@ meta: {touched, error, warning}}) ->
       </div>
     </div>
     <div>
-      {message}
+      {if touched
+        if error
+          <span className="text-danger">{error}</span>
+        else if warning
+          <span className="text-warning">{warning}</span>
+        else
+          <span></span>
+      }
       &nbsp;
     </div>
   </div>

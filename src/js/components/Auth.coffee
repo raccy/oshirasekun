@@ -26,6 +26,4 @@ Auth = ({inputtable, handleSubmit}) ->
     </form>
   </div>
 
-export default reduxForm({
-  form: 'auth'
-})(Auth)
+export default reduxForm(form: 'auth') Auth

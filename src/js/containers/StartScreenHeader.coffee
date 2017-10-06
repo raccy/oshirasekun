@@ -6,10 +6,5 @@ mapStateToProps = (state) ->
 
 mapDispachToProps = (dispach) -> {}
 
-
-StartStreenHeader = connect(
-  mapStateToProps,
-  mapDispachToProps
-)(Header)
-
+StartStreenHeader = connect(mapStateToProps, mapDispachToProps) Header
 export default StartStreenHeader

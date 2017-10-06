@@ -1,15 +1,14 @@
-import R from 'ramda'
 import React from 'react'
 import Badge, {BadgeProps} from './Badge'
 
-badgeContents = R.map (props) ->
-  <Badge {...props} />
-
 Footer = ({badgeList}) ->
+  badgeElementList = badgeList.map ({name, props...}) ->
+    <Badge {props...} key={"badge-#{name}"}/>
+
   <footer role="footer">
     <hr />
     <div className="badges text-right">
-      {badgeContents(badgeList)}
+      {badgeElementList}
     </div>
   </footer>
 

@@ -1,5 +1,6 @@
 # お知らせ君設定ファイル
 ---
+title: "お知らせ君"
 control:
   # remoteはまだ
   type: local
