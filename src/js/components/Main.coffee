@@ -1,7 +1,7 @@
 import React from 'react'
 import Auth from './Auth'
 
-Main = ({mainMode, inputtable, initialValuse, handleAuth}) ->
+Main = ({mainMode, inputtable, authError, handleAuth}) ->
   content = switch mainMode
     when 'loading'
       <div className="alert alert-info" role="alert">
@@ -11,7 +11,7 @@ Main = ({mainMode, inputtable, initialValuse, handleAuth}) ->
         準備中です。しばらくお待ちください。
       </div>
     when 'auth'
-      <Auth inputtable={inputtable} initialValuse={initialValuse}
+      <Auth inputtable={inputtable} authError={authError}
         onSubmit={handleAuth} />
     when 'news'
       <div>ニュース(未完成)</div>

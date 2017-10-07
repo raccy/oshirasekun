@@ -2,7 +2,6 @@ import React from 'react'
 
 FieldInput = ({name, displayName, type, input,
 meta: {touched, error, warning}}) ->
-  console.log(touched)
   [wasValidatedClass, isValidClass, feedbackClass, feedbackText] =
     if touched
       if error?

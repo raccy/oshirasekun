@@ -1,4 +1,5 @@
 import {loginStart, loginDone} from '../actions'
+import {reset} from 'redux-form'
 
 export default class Login
   constructor: (@store) ->
@@ -24,6 +25,7 @@ export default class Login
         reason
       else
         new Error(reasen.toString())
+      @store.dispatch(reset('auth'))
       @store.dispatch(loginDone(err))
 
   # ldap LDAPの認証を行う。

@@ -85,7 +85,7 @@ auth = handleActions
         username: undefined
         password: undefined
         status: 'failed'
-        error: action.payload
+        error: action.payload.message
       )
 , initialAuth
 

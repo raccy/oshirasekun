@@ -2,9 +2,20 @@ import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import FieldInput from './FieldInput'
 
-Auth = ({inputtable, handleSubmit}) ->
+Auth = ({inputtable, authError, handleSubmit, submitting}) ->
+  alert =
+    if authError
+      <div className="col-8 alert alert-danger" role="alert">
+        {authError}
+      </div>
+    else
+      <div className="col-8"></div>
+
   <div className="auth">
     <div className="information">
+      <div className="row justify-content-center">
+        {alert}
+      </div>
     </div>
     <div className="row justify-content-center">
       <div className="col-8">
@@ -14,7 +25,8 @@ Auth = ({inputtable, handleSubmit}) ->
               component={FieldInput} />
             <Field name="password" displayName="パスワード"
               type="password" component={FieldInput} />
-            <button className="btn btn-primary btn-block" type="submit">
+            <button className="btn btn-primary btn-block" type="submit"
+              disabled={submitting}>
               ログイン
             </button>
           </fieldset>
