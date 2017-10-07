@@ -6,24 +6,32 @@ Auth = ({inputtable, handleSubmit}) ->
   <div className="auth">
     <div className="information">
     </div>
-    <form onSubmit={handleSubmit}>
-      <fieldset disabled={not inputtable}>
-        <Field name="username" displayName="ユーザー名"
-          type="text" component={FieldInput} />
-        <Field name="password" displayName="パスワード"
-          type="password" component={FieldInput} />
-        <div className="row">
-          <div className="offset-2 col-8 text-right">
-            <button className="btn btn-primary ml-1" type="submit">
+    <div className="row justify-content-center">
+      <div className="col-8">
+        <form onSubmit={handleSubmit}>
+          <fieldset disabled={not inputtable}>
+            <Field name="username" displayName="ユーザー名" type="text"
+              component={FieldInput} />
+            <Field name="password" displayName="パスワード"
+              type="password" component={FieldInput} />
+            <button className="btn btn-primary btn-block" type="submit">
               ログイン
             </button>
-            <button className="btn btn-default ml-1" type="reset">
-              リセット
-            </button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
 
-export default reduxForm(form: 'auth') Auth
+
+validate = (values) ->
+  errors = {}
+  if not values.username?
+    errors.username = '必須項目です。'
+
+  if not values.password?
+    errors.password = '必須項目です。'
+
+  return errors
+
+export default reduxForm({form: 'auth', validate}) Auth

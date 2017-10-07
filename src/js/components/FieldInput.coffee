@@ -2,26 +2,28 @@ import React from 'react'
 
 FieldInput = ({name, displayName, type, input,
 meta: {touched, error, warning}}) ->
-  console.log input
-  <div className="form-group">
-    <div className="row">
-      <label className="offset-2 col-2 col-form-label" htmlFor={name}>
-        {displayName}
-      </label>
-      <div className="col-6">
-        <input className="form-control" type={type}
-          placeholder="入力してください ..." {input...} />
-      </div>
-    </div>
-    <div>
-      {if error
-        <span className="text-danger">{error}</span>
-      else if warning
-        <span className="text-warning">{warning}</span>
+  console.log(touched)
+  [wasValidatedClass, isValidClass, feedbackClass, feedbackText] =
+    if touched
+      if error?
+        ['was-validated', 'is-invalid', '', error]
+      else if warnig?
+        # 警告がある場合はvalidでもinvalidでも無い。
+        ['was-validated', 'is-invalid', 'text-danger', warning]
       else
-        <span></span>
-      }
-      &nbsp;
+        ['was-validated', 'is-valid', 'text-success', '　']
+    else
+      ['', '', '', '　']
+  <div className={"form-group #{wasValidatedClass}"}>
+    <label htmlFor={name}>
+      {displayName}
+    </label>
+    <input className={"form-control #{isValidClass}"} type={type}
+      placeholder="入力してください ..." {input...} required />
+    <div className="invalid-feedback" style={display: 'block'}>
+      <span className={feedbackClass}>
+        {feedbackText}
+      </span>
     </div>
   </div>
 
