@@ -20,8 +20,8 @@ export default class Config
         return
       try
         @loadData(safeLoad(data))
-      catch e
-        @store.dispatch(configLoad(e))
+      catch loadError
+        @store.dispatch(configLoad(loadError))
 
   loadData: (config) ->
     @store.dispatch(authSetup(config.startScreen.auth))
