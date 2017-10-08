@@ -1,3 +1,4 @@
+import {app} from 'electron'
 import R from 'ramda'
 import {combineReducers} from 'redux'
 import {handleActions, handleAction} from 'redux-actions'
@@ -15,34 +16,31 @@ import * as Actions from './actions'
 - "dummy" ダミー、テスト用
 - "none" 認証無し、ログイン不可
 - "local" ローカル認証
-
-テキストのタイプ
-- "plain" プレーンテキスト
-- "text" プレーンテキスト
-- "markdown" マークダウン
-- "gfm" GitHub フレーバー マークダウン
-- "asciidoc" Asciidoc
-- "review" ReVIEW
-- "textile" Textile
-- "html" HTML
 ###
 
 initialMode =
   debug: false
 
 initialConfig =
+  error: undefined
   loaded: false
+  type: 'local'
+  path: 'config.yml'
+  dir: '.'
 
 initialAuth =
+  error: undefined
   required: true
   status: 'none'
   method: 'none'
 
 initialNews =
-  show: true
+  error: undefined
   loaded: false
+  show: true
   type: 'plain'
   encode: 'UTF-8'
+  html: undefined
 
 export initialState =
   mode: initialMode
@@ -58,7 +56,7 @@ mode = handleActions
 config = handleActions
   "#{Actions.CONFIG_LOAD}":
     next: (state, action) ->
-      R.merge(state, loaded: true, path: action.payload)
+      R.merge(state, {loaded: true, action.payload...})
     throw: (state, action) ->
       R.merge(state, error: action.payload)
 , initialConfig
@@ -94,7 +92,8 @@ news = handleActions
     R.merge(state, action.payload)
   "#{Actions.NEWS_LOAD}":
     next: (state, action) ->
-      R.mergeAll([state, action.payload, loaded: true])
+      console.log("html: #{action.payload}")
+      R.merge(state, html: action.payload, loaded: true)
     throw: (state, action) ->
       R.merge(state, error: action.payload)
 , initialNews

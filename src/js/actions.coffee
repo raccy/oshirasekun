@@ -21,6 +21,7 @@ export loginStart = createAction(LOGIN_START)
 export LOGIN_DONE = 'LOGIN_DONE'
 export loginDone = createAction(LOGIN_DONE)
 
+# News
 export NEWS_SETUP = 'NEWS_SETUP'
 export newsSetup = createAction(NEWS_SETUP)
 

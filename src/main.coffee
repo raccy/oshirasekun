@@ -1,8 +1,11 @@
 import path from 'path'
 import {app} from 'electron'
+
 import optParse from './js/libs/optParse'
 import Config from './js/libs/Config'
 import Login from './js/libs/Login'
+import News from './js/libs/News'
+
 import store from './js/stores'
 import {enableDebugMode} from './js/actions'
 import MainApp from './js/MainApp'
@@ -21,6 +24,8 @@ if opt.options.debug
 
 # メイン起動
 configFile = path.resolve(opt.options.config or app.getName() + '.yml')
-config = new Config(configFile, store)
+configDir = path.dirname(configFile)
+config = new Config(store, configFile)
 login = new Login(store)
+news = new News(store, configDir)
 mainApp = new MainApp(app, opt, store)

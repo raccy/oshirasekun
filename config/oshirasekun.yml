@@ -2,9 +2,12 @@
 ---
 title: "お知らせ君"
 control:
-  # remoteはまだ
+  # local or remote
   type: local
-  fallback: local
+  # remote 失敗時にfallbackするかどうか
+  fallback: true
+  # remoteのconfigファイルへのパス
+  remote: http://ctl.example.jp/oshirasekun.yml
 admin:
   password: admin
 startScreen:
@@ -27,7 +30,7 @@ startScreen:
       domain: localnet
   news:
     show: true
-    # plain, markdown, gfm, [asciidoc, review, textile, html]
+    # plain, html, markdown, asciidoc(未実装), review(未実装)
     type: markdown
     # UTF-8以外は現在サポートしていない
     encode: UTF-8
