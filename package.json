@@ -11,7 +11,7 @@
     "build": "npm run buildcoffee && npm run buildpug && npm run buildsass && npm run buildfont",
     "prestart": "npm run build",
     "start": "electron .",
-    "debug": "electron . -d -c config/oshirasekun.yml",
+    "debug": "cross-env NODE_ENV=development electron . -d -c config/oshirasekun.yml",
     "package": "npm run build && electron-packager . --out=pkg --ignore=src --ignore=pkg",
     "clean": "rimraf dst && rimraf pkg",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.24.1",
     "coffeescript": "^2.0.1",
     "copyfiles": "^1.2.0",
+    "cross-env": "^5.0.5",
     "electron": "^1.7.8",
     "electron-packager": "^9.1.0",
     "font-awesome": "^4.7.0",

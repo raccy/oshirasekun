@@ -1,3 +1,4 @@
+import {env} from 'process'
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
 import {createLogger} from 'redux-logger'
@@ -5,7 +6,10 @@ import {electronEnhancer} from 'redux-electron-store'
 import {reducer, initialState} from './reducers'
 
 logger = createLogger()
-middleware = [thunk, logger]
+middleware = if env.NODE_ENV is 'development'
+  [thunk, logger]
+else
+  [thunk]
 
 enhancer = compose(
   applyMiddleware(middleware...)
