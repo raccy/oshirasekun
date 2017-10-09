@@ -40,6 +40,7 @@ initialNews =
   show: true
   type: 'plain'
   encode: 'UTF-8'
+  path: undefined
   html: undefined
 
 export initialState =

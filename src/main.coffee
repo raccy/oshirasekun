@@ -10,13 +10,6 @@ import store from './js/stores'
 import {enableDebugMode} from './js/actions'
 import MainApp from './js/MainApp'
 
-# エラー発生時に閉じる
-store.subscribe ->
-  error = store.getState().config.error
-  if error?
-    console.error("#{error.name}:  #{error.message}")
-    app.exit(1)
-
 # コマンドラインオプション解析
 opt = optParse()
 if opt.options.debug
@@ -24,8 +17,12 @@ if opt.options.debug
 
 # メイン起動
 configFile = path.resolve(opt.options.config or app.getName() + '.yml')
-configDir = path.dirname(configFile)
 config = new Config(store, configFile)
+
+config.on 'error', (error) ->
+  console.error("#{error.name}:  #{error.message}")
+  app.exit(1)
+
 login = new Login(store)
-news = new News(store, configDir)
+news = new News(store)
 mainApp = new MainApp(app, opt, store)

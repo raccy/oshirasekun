@@ -3,7 +3,7 @@ import {reset} from 'redux-form'
 
 export default class Login
   constructor: (@store) ->
-    @store.subscribe =>
+    @unsubscribe = @store.subscribe =>
       state = @store.getState()
       @start(state.auth) if state.auth.status is 'prepared'
 
@@ -20,6 +20,7 @@ export default class Login
     loginPromise
     .then (value) =>
       @store.dispatch(loginDone(value))
+      @unsubscribe()
     .catch (reason) =>
       err = if reason instanceof Error
         reason

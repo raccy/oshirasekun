@@ -1,5 +1,6 @@
 import {readFile} from 'fs'
 import {resolve, isAbsolute} from 'path'
+import {URL} from 'url'
 import _ from 'lodash'
 import marked from 'marked'
 import {newsLoad} from '../actions'
@@ -14,20 +15,22 @@ import {newsLoad} from '../actions'
 ###
 
 export default class News
-  constructor: (@store, @configDir) ->
+  constructor: (@store) ->
     @html = undefined
     unsubscribe = @store.subscribe =>
       state = @store.getState()
       if state.news.show and not state.news.loaded and state.news.path?
         # 読込は一度のみ
         unsubscribe()
-        @loadNews(state.news)
+        @loadNews(state.news, state.config.dir)
 
-  loadNews: ({path, type, encode}) ->
-    unless isAbsolute(path)
-      path = resolve(@configDir, path)
+  loadNews: ({path, type, encode}, configDir) ->
+    fullPath = if path instanceof URL
+      new URL(path, configDir)
+    else
+      resolve(configDir, path)
 
-    readFile path, encode, (err, data) =>
+    readFile fullPath, encode, (err, data) =>
       if err
         @store.dispatch(newsLoad(err))
         return
