@@ -93,7 +93,6 @@ news = handleActions
     R.merge(state, action.payload)
   "#{Actions.NEWS_LOAD}":
     next: (state, action) ->
-      console.log("html: #{action.payload}")
       R.merge(state, html: action.payload, loaded: true)
     throw: (state, action) ->
       R.merge(state, error: action.payload)
