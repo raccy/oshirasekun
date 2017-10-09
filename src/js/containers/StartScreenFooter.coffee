@@ -28,8 +28,10 @@ mapStateToProps = (state) ->
       name: 'authenticated'
       text: '認証済み'
       level: 'success'
+  closable = not state.auth.required or state.auth.status is 'done'
   {
     badgeList: [modeBadge, authBadge].filter((e) -> e?)
+    closable
   }
 
 mapDispachToProps = (dispach) -> {}
