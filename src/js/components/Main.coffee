@@ -1,7 +1,8 @@
 import React from 'react'
 import Auth from './Auth'
+import News from './News'
 
-Main = ({mainMode, inputtable, authError, handleAuth}) ->
+Main = ({mainMode, inputtable, authError, news, handleAuth}) ->
   content = switch mainMode
     when 'loading'
       <div className="alert alert-info" role="alert">
@@ -14,7 +15,7 @@ Main = ({mainMode, inputtable, authError, handleAuth}) ->
       <Auth inputtable={inputtable} authError={authError}
         onSubmit={handleAuth} />
     when 'news'
-      <div>ニュース(未完成)</div>
+      <News {news...} />
     else
       <div className="alert alert-danger" role="alert">
         <strong>

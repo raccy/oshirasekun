@@ -17,6 +17,7 @@ mapStateToProps = (state) ->
     mainMode
     inputtable
     authError: state.auth.error
+    news: state.news
   }
 
 mapDispachToProps = (dispach) ->

@@ -25,6 +25,7 @@ Auth = ({inputtable, authError, handleSubmit, submitting}) ->
               component={FieldInput} />
             <Field name="password" displayName="パスワード"
               type="password" component={FieldInput} />
+            <hr />
             <button className="btn btn-primary btn-block" type="submit"
               disabled={submitting}>
               ログイン
