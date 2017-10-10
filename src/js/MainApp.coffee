@@ -61,7 +61,7 @@ export default class MainApp
       @startScreenWindow.webContents.openDevTools()
 
     electron.globalShortcut.register 'CmdOrCtrl+Alt+O', =>
-      console.warn('Froce to close!')
+      console.warn 'Force to close!'
       @closeWindow()
 
   focusstartScreenWindow: ->
