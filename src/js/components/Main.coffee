@@ -25,9 +25,7 @@ Main = ({mainMode, inputtable, authError, news, handleAuth}) ->
       </div>
 
   <main role="main">
-    <div className="container-fluid">
-      {content}
-    </div>
+    {content}
   </main>
 
 export default Main
