@@ -1,5 +1,6 @@
 import {connect} from 'react-redux'
 import Footer from '../components/Footer'
+import {closeApp} from '../actions'
 
 mapStateToProps = (state) ->
   modeBadge = if state.mode.debug
@@ -34,7 +35,10 @@ mapStateToProps = (state) ->
     closable
   }
 
-mapDispachToProps = (dispach) -> {}
+mapDispachToProps = (dispach) ->
+  handleClose: ->
+    dispach(closeApp())
+
 
 StartStreenFooter = connect(mapStateToProps, mapDispachToProps) Footer
 export default StartStreenFooter

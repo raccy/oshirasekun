@@ -4,6 +4,9 @@ import {createAction} from 'redux-actions'
 export ENABLE_DEBUG_MODE = 'ENABLE_DEBUG_MODE'
 export enableDebugMode = createAction(ENABLE_DEBUG_MODE)
 
+export CLOSE_APP = 'CLOSE_APP'
+export closeApp = createAction(CLOSE_APP)
+
 # Config
 export CONFIG_LOAD = 'CONFIG_LOAD'
 export configLoad = createAction(CONFIG_LOAD)

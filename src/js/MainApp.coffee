@@ -7,8 +7,11 @@ import {Options} from './libs/optParse'
 export default class MainApp
   constructor: (@app, @opt, @store) ->
     @startScreenWindow = null
-    @app.on('window-all-closed', => @onWindowAllClosed())
-    @app.on('ready', => @onReady())
+    @app.on 'window-all-closed', => @onWindowAllClosed()
+    @app.on 'ready', => @onReady()
+    @store.subscribe =>
+      if @store.getState().mode.close
+        @closeWindow()
 
   onWindowAllClosed: ->
     @app.quit()
@@ -58,9 +61,8 @@ export default class MainApp
       @startScreenWindow.webContents.openDevTools()
 
     electron.globalShortcut.register 'CmdOrCtrl+Alt+O', =>
-      console.log('Froce to close!')
-      @startScreenWindow?.setClosable(true)
-      @startScreenWindow?.close()
+      console.warn('Froce to close!')
+      @closeWindow()
 
   focusstartScreenWindow: ->
     console.log('Force to focus Main Window!')
@@ -79,3 +81,7 @@ export default class MainApp
       , 1000
     else
       @startScreenWindow?.focus()
+
+  closeWindow: ->
+    @startScreenWindow?.setClosable(true)
+    @startScreenWindow?.close()

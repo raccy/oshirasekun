@@ -20,6 +20,7 @@ import * as Actions from './actions'
 
 initialMode =
   debug: false
+  close: false
 
 initialConfig =
   error: undefined
@@ -51,7 +52,9 @@ export initialState =
 
 mode = handleActions
   "#{Actions.ENABLE_DEBUG_MODE}": (state, action) ->
-    debug: true
+    R.merge(state, debug: true)
+  "#{Actions.CLOSE_APP}": (state, action) ->
+    R.merge(state, close: true)
 , initialMode
 
 config = handleActions
