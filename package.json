@@ -12,7 +12,7 @@
     "prestart": "npm run build",
     "start": "electron .",
     "debug": "cross-env NODE_ENV=development electron . -d -c config/oshirasekun.yml",
-    "package": "npm run build && electron-packager . --out=pkg --ignore=src --ignore=pkg",
+    "package": "npm run build && electron-packager . --out=pkg --ignore=pkg --overwrite --no-prune",
     "clean": "rimraf dst && rimraf pkg",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
