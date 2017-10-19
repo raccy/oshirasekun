@@ -7,7 +7,7 @@ control:
   # remote 失敗時にfallbackするかどうか
   fallback: true
   # remoteのconfigファイルへのパス
-  remote: http://ctl.example.jp/oshirasekun.yml
+  remote: https://ctl.example.jp/oshirasekun.yml
 admin:
   password: admin
 startScreen:
@@ -28,6 +28,8 @@ startScreen:
       sleep: 10
       drive: Z
       domain: localnet
+    # 認証後に実行されるJavaScript
+    postScript: ./post.js
   news:
     show: true
     # plain, html, markdown, asciidoc(未実装), review(未実装)
