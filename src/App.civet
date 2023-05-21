@@ -1,0 +1,41 @@
+{ createSignal } from "solid-js"
+logo from "./assets/logo.svg"
+{ invoke } from "@tauri-apps/api/tauri"
+import "./App.css"
+
+App := ->
+  [greetMsg, setGreetMsg] := createSignal("")
+  [name, setName] := createSignal("")
+
+  greet := async ->
+    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+    invoke("greet", name: name()) |> await |> setGreetMsg
+
+  <div .container>
+    <h1>Welcome to Tauri!
+
+    <div .row>
+      <a href="https://vitejs.dev" target="_blank">
+        <img .logo.vite src="/vite.svg" alt="Vite logo">
+      <a href="https://tauri.app" target="_blank">
+        <img .logo.tauri src="/tauri.svg" alt="Tauri logo">
+      <a href="https://solidjs.com" target="_blank">
+        <img .logo.solid src=logo alt="Solid logo">
+      <a href="https://civet.dev/" target="_blank">
+        <img .logo.civet src="/civet.png" alt="Civet logo">
+
+    <p>Click on the Tauri, Vite, and Solid logos to learn more.
+
+    <div .row>
+      <div>
+        <input
+          #greet-input
+          onChange={(e) => setName(e.currentTarget.value)}
+          placeholder="Enter a name..."
+        >
+        <button type="button" onClick={() => greet()}>
+          Greet
+
+    <p>{greetMsg()}
+
+export default App

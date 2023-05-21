@@ -1,9 +1,2 @@
 node_modules
-dst
-pkg
-*-debug.log
-
-# package
-oshirasekun-dawrinw-x64
-oshirasekun-win32-x64
-oshirasekun-win32-ia32
+dist
